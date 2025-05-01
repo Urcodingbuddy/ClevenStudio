@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Plan {
-  id        String    @id
+  id        String    @id @default(cuid())
   name      String
   category  String
   slug      String    @unique
@@ -19,7 +19,7 @@ model Plan {
 }
 
 model User {
-  id                  String    @id
+  id                  String    @id @default(cuid())
   name                String
   email               String    @unique
   password            String?
