@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Plan {
+  id        String    @id
+  name      String
+  category  String
+  slug      String    @unique
+  price     Float
+  feature   String[]
+  createdAt DateTime? @default(now())
+  title     String?
+}
+
+model User {
+  id                  String    @id
+  name                String
+  email               String    @unique
+  password            String?
+  phone               String?
+  auth_type           AuthType
+  imageURL            String?
+  createdAt           DateTime? @default(now())
+  lastPasswordUpdated DateTime?
+}
+
+enum AuthType {
+  Google
+  Github
+  credentials
+}

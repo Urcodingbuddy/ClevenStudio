@@ -1,0 +1,28 @@
+{
+  "extends": "@repo/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "paths": {
+      "@repo/db": ["../../packages/db/index.ts"],
+      "@repo/landing/*": ["./landing/*"],
+      "@repo/components/ui/*":["./components/ui/*"],
+      "@repo/components/skeletons*":["./components/skeletons*"],
+      "@repo/lib/hooks*": ["./lib/hooks*"],
+      "@repo/lib/*": ["./lib/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    "next.config.js",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
