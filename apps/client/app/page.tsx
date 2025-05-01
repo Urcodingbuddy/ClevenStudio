@@ -10,9 +10,9 @@ import { TextHoverEffect } from "@repo/components/ui/text-hover-effect";
 import { InitialLoader } from "@repo/landing/InitialLoader";
 
 export default function Home() {
-
   return (
     <>
+    
     <InitialLoader />
     <AppBar/>
     <ContainerScroll>
