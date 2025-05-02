@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
-      <body className={`bg-[#0c0c0c] dark ultra-scrollbar overflow-y-scroll ${raleway.className}
+      <body className={`bg-[#0c0c0c] dark ultra-scrollbar ${raleway.className}
       `}>
         <Suspense>{children}</Suspense>
       </body>
