@@ -51,7 +51,7 @@ export default function Sidebar() {
   const { data: session } = useSession()
   return (
     <TooltipProvider delayDuration={300}>
-      <aside className="flex w-[60px] flex-col justify-between bg-[#121212] py-2">
+      <aside className="flex z-10 h-screen w-[60px] flex-col justify-between bg-[#121212] py-2">
         <div className="flex flex-col items-center gap-4">
           {/* Logo */}
           <Link href="/" className="mb-4 flex h-10 w-10 items-center justify-center">
