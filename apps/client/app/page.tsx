@@ -12,7 +12,6 @@ import { InitialLoader } from "@repo/landing/InitialLoader";
 export default function Home() {
   return (
     <>
-    
     <InitialLoader />
     <AppBar/>
     <ContainerScroll>
