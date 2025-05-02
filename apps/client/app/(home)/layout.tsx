@@ -1,13 +1,14 @@
-import type React from "react";
-import Sidebar from "@repo/components/ui/sideBar";
-export default function Layout({ children }: { children: React.ReactNode }) {
+import type { ReactNode } from "react"
+import { ThemeProvider } from "@repo/components/ui/theme-provider"
+import Sidebar from "@repo/components/ui/sideBar"
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <main className="flex overflow-hidden">
-      <Sidebar />
-      <div className="
-      overflow-y-scroll">
-      {children}
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+      <div className="flex h-screen overflow-hidden bg-[#0c0c0c] text-slate-200">
+        <Sidebar />
+        <div className="flex-1 ultra-scrollbar overflow-y-auto">{children}</div>
       </div>
-    </main>
-  );
+    </ThemeProvider>
+  )
 }
