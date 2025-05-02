@@ -46,7 +46,7 @@
 
 ::selection {
   color: black;
-  background: #67e8f9;
+  background: rgba(128, 128, 128, 0.663);
 }
 
 @keyframes fadeIn {

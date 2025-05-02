@@ -45,11 +45,11 @@ export function ProjectNotes() {
           placeholder="Add a note about this project..."
           value={newNote}
           onChange={(e) => setNewNote(e.target.value)}
-          className="min-h-[80px] bg-[#0c0c0c] border-[#1e2a45] text-sm resize-none focus-visible:ring-blue-500"
+          className="min-h-[80px] bg-[#0c0c0c] border-1 border-[#1e2a45] text-sm resize-none focus-visible:gray-500"
         />
       </div>
       <div className="flex justify-end">
-        <Button onClick={handleAddNote} className="flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700">
+        <Button onClick={handleAddNote} className="flex items-center gap-2 bg-[#161616] text-white hover:bg-[#1a1a1a] cursor-pointer ">
           <Send className="w-4 h-4" />
           <span>Add Note</span>
         </Button>
@@ -57,11 +57,11 @@ export function ProjectNotes() {
 
       <div className="space-y-2 mt-4">
         {notes.map((note) => (
-          <div key={note.id} className="p-3 rounded-md bg-[#0c0c0c] border-l-2 border-blue-600">
+          <div key={note.id} className="p-3 rounded-md bg-[#0c0c0c] border-l-2 border-gray-500">
             <div className="flex items-center justify-between mb-1">
               <div className="flex items-center gap-2">
                 <div className="flex items-center justify-center w-5 h-5 rounded-full bg-[#0c0c0c] text-blue-400">
-                  <User className="w-3 h-3" />
+                  <User className="w-3 h-3 text-white " />
                 </div>
                 <span className="text-xs font-medium">{note.author}</span>
               </div>
