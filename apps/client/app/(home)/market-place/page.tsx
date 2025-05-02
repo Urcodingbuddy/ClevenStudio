@@ -44,10 +44,9 @@ export default function Marketplace() {
   }
 
   return (
-    <div className="flex min-h-screen w-screen bg-black text-white"> 
+    <div className="flex bg-black text-white"> 
       {/* Main Content */}
       <div className="flex-1 overflow-auto">
-        {/* Replace the header section with this updated version that includes a mobile cart icon */}
         <header className="sticky top-0 z-10 flex h-16 items-center justify-between gap-4 border-b border-zinc-800 bg-black px-4 sm:px-6">
           <h1 className="text-2xl font-bold">Marketplace</h1>
           <div className="md:hidden">

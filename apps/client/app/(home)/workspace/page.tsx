@@ -1,16 +1,35 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@repo/components/ui/tabs"
-
-import { Button } from "@repo/components/ui/button"
-import { ProjectNotes } from "@repo/components/ui/project-notes"
-import { ProjectHeader } from "@repo/components/ui/project-header"
-import { ServiceCard } from "@repo/components/ui/service-card"
-import { Bug, Wrench, Search, Zap, FileText, Share2} from "lucide-react"
+import { useState } from "react";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@repo/components/ui/tabs";
+import { ProjectNotes } from "@repo/components/ui/project-notes";
+import { ProjectHeader } from "@repo/components/ui/project-header";
+import {
+  Bug,
+  Wrench,
+  Search,
+  Zap,
+  FileText,
+  Share2,
+  RefreshCw,
+  CheckCircle2,
+  Circle,
+} from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@repo/components/ui/card";
+import { Progress } from "@repo/components/ui/progress";
 
 export default function Dashboard() {
-  const [activeTab, setActiveTab] = useState("bug-fixing")
+  const [activeTab, setActiveTab] = useState("bug-fixing");
 
   const projectDetails = {
     name: "Cleven E-commerce Platform",
@@ -20,13 +39,18 @@ export default function Dashboard() {
     uploadedBy: "Sarah Johnson",
     uploadDate: "Oct 15, 2023",
     deadline: "Dec 30, 2023",
-  }
+  };
 
   const services = [
     {
       id: "bug-fixing",
       name: "Bug Fixing",
       icon: Bug,
+      color: "blue",
+      bgColor: "bg-blue-950",
+      textColor: "text-blue-400",
+      borderColor: "border-blue-800",
+      progressColor: "from-blue-600 to-blue-400",
       steps: [
         { name: "Issue Reported", completed: true },
         { name: "Bug Identified", completed: true },
@@ -42,6 +66,11 @@ export default function Dashboard() {
       id: "maintenance",
       name: "Maintenance & Support",
       icon: Wrench,
+      color: "green",
+      bgColor: "bg-green-950",
+      textColor: "text-green-400",
+      borderColor: "border-green-800",
+      progressColor: "from-green-600 to-green-400",
       steps: [
         { name: "System Audit", completed: true },
         { name: "Performance Check", completed: true },
@@ -57,6 +86,11 @@ export default function Dashboard() {
       id: "seo",
       name: "SEO Optimization",
       icon: Search,
+      color: "purple",
+      bgColor: "bg-purple-950",
+      textColor: "text-purple-400",
+      borderColor: "border-purple-800",
+      progressColor: "from-purple-600 to-purple-400",
       steps: [
         { name: "Keyword Analysis", completed: true },
         { name: "On-Page SEO", completed: false },
@@ -72,6 +106,11 @@ export default function Dashboard() {
       id: "speed",
       name: "Website Speed Optimization",
       icon: Zap,
+      color: "amber",
+      bgColor: "bg-amber-950",
+      textColor: "text-amber-400",
+      borderColor: "border-amber-800",
+      progressColor: "from-amber-600 to-amber-400",
       steps: [
         { name: "Performance Audit", completed: true },
         { name: "Asset Optimization", completed: true },
@@ -87,6 +126,11 @@ export default function Dashboard() {
       id: "content",
       name: "Content Update & Management",
       icon: FileText,
+      color: "red",
+      bgColor: "bg-red-950",
+      textColor: "text-red-400",
+      borderColor: "border-red-800",
+      progressColor: "from-red-600 to-red-400",
       steps: [
         { name: "Content Review", completed: true },
         { name: "Updates Planned", completed: true },
@@ -102,6 +146,11 @@ export default function Dashboard() {
       id: "social",
       name: "Social Media Integration",
       icon: Share2,
+      color: "teal",
+      bgColor: "bg-teal-950",
+      textColor: "text-teal-400",
+      borderColor: "border-teal-800",
+      progressColor: "from-teal-600 to-teal-400",
       steps: [
         { name: "Platform Selection", completed: true },
         { name: "API Integration", completed: false },
@@ -113,56 +162,388 @@ export default function Dashboard() {
       lastUpdated: "Nov 4, 2023",
       status: "Started",
     },
-  ]
+  ];
+
+  // Find the active service
+  const activeService =
+    services.find((service) => service.id === activeTab) || services[0];
 
   return (
-    <div className="min-h-screen bg-background">
-      <main className="container py-6 space-y-8">
-        <ProjectHeader project={projectDetails} />
-        <Tabs defaultValue="bug-fixing" value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <div className="bg-muted/30 p-1 rounded-lg border border-border/50">
-            <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-1 bg-transparent h-auto p-1">
-              {services.map((service) => (
-                <TabsTrigger
-                  key={service.id}
-                  value={service.id}
-                  className="flex items-center gap-2 py-2 data-[state=active]:bg-background data-[state=active]:shadow-sm transition-all"
-                >
-                  <service.icon className="h-4 w-4" />
-                  <span className="hidden md:inline">{service.name}</span>
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </div>
-
-          {services.map((service) => (
-            <TabsContent key={service.id} value={service.id} className="space-y-4 mt-6">
-              <ServiceCard service={service} />
-            </TabsContent>
-          ))}
-        </Tabs>
-
-        <div className="w-full">
-          <ProjectNotes />
+    <div className="min-h-screen p-6 space-y-6">
+      <div className="fixed">
+        <div className="absolute opacity-40">
+          <div className="absolute bottom-[20%] right-[-20%] w-[500px] h-[500px] rounded-b-lg bg-white/40 blur-[100px] "></div>
+          <div className="absolute top-[10%] left-[50%] rotate-45 w-[600px] h-[100px]  bg-white/60 blur-[100px]"></div>
         </div>
-      </main>
-
-      <footer className="border-t py-6 md:py-0 bg-muted/20">
-        <div className="container flex flex-col md:flex-row items-center justify-between gap-4 md:h-16">
-          <p className="text-sm text-muted-foreground">© 2023 Cleven Studios. All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm">
-              Help
-            </Button>
-            <Button variant="ghost" size="sm">
-              Privacy
-            </Button>
-            <Button variant="ghost" size="sm">
-              Terms
-            </Button>
-          </div>
+      </div>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <h1 className="text-2xl font-semibold text-white">
+            Project Overview
+          </h1>
+          <span
+            className={`px-2 py-1 text-xs font-medium rounded-full ${activeService?.bgColor} ${activeService?.textColor}`}
+          >
+            LIVE
+          </span>
         </div>
-      </footer>
+        <button className="p-2 rounded-full bg-[#131a29] text-slate-400 hover:text-white">
+          <RefreshCw className="w-4 h-4" />
+        </button>
+      </div>
+
+      {/* Project Details */}
+      <ProjectHeader project={projectDetails} />
+
+      {/* Main Dashboard Grid */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        {/* Service Details */}
+        <div className="lg:col-span-2">
+          <Card className="bg-black/50 backdrop-blur-3xl border-[#1e2a45] shadow-lg overflow-hidden">
+            <CardHeader className="pb-2 border-b border-[#1e2a45]">
+              <CardTitle className="text-sm font-medium text-slate-400">
+                Service Details
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+              <Tabs
+                defaultValue="bug-fixing"
+                value={activeTab}
+                onValueChange={setActiveTab}
+                className="w-full"
+              >
+                <div className="px-4 py-2 border-b border-[#1e2a45]">
+                  <TabsList className="h-auto p-1 bg-[#0c0c0c] rounded-md flex flex-wrap gap-1">
+                    {services.map((service) => (
+                      <TabsTrigger
+                        key={service.id}
+                        value={service.id}
+                        className={`flex items-center gap-2 py-2 px-3 data-[state=active]:${service.bgColor} data-[state=active]:${service.textColor}`}
+                      >
+                        <service.icon className="w-4 h-4" />
+                        <span className="text-xs">{service.name}</span>
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+                </div>
+
+                {services.map((service) => (
+                  <TabsContent
+                    key={service.id}
+                    value={service.id}
+                    className="p-4 mt-0"
+                  >
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-3 mb-4">
+                      {/* Service Progress Card */}
+                      <Card
+                        className={`bg-[#0c0c0c] border-${service.borderColor} shadow-lg`}
+                      >
+                        <CardHeader className="pb-2">
+                          <CardTitle className="text-sm font-medium text-slate-400">
+                            Overall Progress
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="flex items-center justify-between">
+                            <span
+                              className={`text-2xl font-bold ${service.textColor}`}
+                            >
+                              {service.percentage}%
+                            </span>
+                            <service.icon
+                              className={`w-6 h-6 ${service.textColor}`}
+                            />
+                          </div>
+                          <Progress
+                            value={service.percentage}
+                            className="h-2 mt-3 bg-black/50"
+                            indicatorClassName={`bg-gradient-to-r ${service.progressColor}`}
+                          />
+                          <p className="mt-2 text-xs text-slate-400">
+                            Last updated: {service.lastUpdated}
+                          </p>
+                        </CardContent>
+                      </Card>
+
+                      {/* Service Status Card */}
+                      <Card
+                        className={`bg-[#0c0c0c] border-${service.borderColor} shadow-lg`}
+                      >
+                        <CardHeader className="pb-2">
+                          <CardTitle className="text-sm font-medium text-slate-400">
+                            Status
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="flex items-center justify-between">
+                            <span
+                              className={`text-2xl font-bold ${service.textColor}`}
+                            >
+                              {service.status}
+                            </span>
+                            <span
+                              className={`flex items-center justify-center w-6 h-6 rounded-full ${service.bgColor}`}
+                            >
+                              <span
+                                className={`w-3 h-3 rounded-full ${service.textColor} animate-pulse`}
+                              ></span>
+                            </span>
+                          </div>
+                          <div className="flex items-center mt-4 text-xs text-slate-400">
+                            <div className="w-full h-1 bg-black/50">
+                              <div
+                                className={`h-1 bg-gradient-to-r ${service.progressColor}`}
+                                style={{ width: `${service.percentage}%` }}
+                              ></div>
+                            </div>
+                          </div>
+                          <p className="mt-2 text-xs text-slate-400">
+                            {
+                              service.steps.filter((step) => step.completed)
+                                .length
+                            }{" "}
+                            of {service.steps.length} steps completed
+                          </p>
+                        </CardContent>
+                      </Card>
+
+                      {/* Time Remaining Card */}
+                      <Card
+                        className={`bg-[#0c0c0c] border-${service.borderColor} shadow-lg`}
+                      >
+                        <CardHeader className="pb-2">
+                          <CardTitle className="text-sm font-medium text-slate-400">
+                            Time Remaining
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="flex items-center justify-between">
+                            <span
+                              className={`text-2xl font-bold ${service.textColor}`}
+                            >
+                              {Math.floor(Math.random() * 30) + 1} days
+                            </span>
+                            <span
+                              className={`flex items-center justify-center w-6 h-6 rounded-full ${service.bgColor} ${service.textColor}`}
+                            >
+                              <RefreshCw className="w-4 h-4" />
+                            </span>
+                          </div>
+                          <div className="h-2 mt-3 rounded-full bg-black/50">
+                            <div
+                              className={`h-2 rounded-full bg-gradient-to-r ${service.progressColor}`}
+                              style={{ width: "70%" }}
+                            ></div>
+                          </div>
+                          <p className="mt-2 text-xs text-slate-400">
+                            Deadline: {projectDetails.deadline}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </div>
+
+                    <Card className="bg-[#0c0c0c] border-[#1e2a45] shadow-lg mb-0">
+                      <CardHeader className="pb-2 flex flex-row items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <div
+                            className={`flex items-center justify-center w-6 h-6 rounded-full ${service.bgColor} ${service.textColor}`}
+                          >
+                            <service.icon className="w-3 h-3" />
+                          </div>
+                          <CardTitle className="text-base font-medium">
+                            {service.name}
+                          </CardTitle>
+                        </div>
+                        <div
+                          className={`px-2 py-1 text-xs font-medium rounded-full ${service.bgColor} ${service.textColor}`}
+                        >
+                          {service.status}
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-4">
+                          <div className="space-y-1">
+                            <div className="flex items-center justify-between text-xs">
+                              <span className="text-slate-400">Progress</span>
+                              <span className={service.textColor}>
+                                {service.percentage}%
+                              </span>
+                            </div>
+                            <Progress
+                              value={service.percentage}
+                              className="h-2 bg-[#0c0c0c]"
+                              indicatorClassName={`bg-gradient-to-r ${service.progressColor}`}
+                            />
+                          </div>
+
+                          <div className="grid grid-cols-2 gap-2 md:grid-cols-3">
+                            {service.steps.map((step, index) => (
+                              <div
+                                key={index}
+                                className="flex items-center gap-2 p-2 rounded-md bg-[#0c0c0c]"
+                              >
+                                {step.completed ? (
+                                  <div
+                                    className={`flex items-center justify-center w-4 h-4 rounded-full ${service.bgColor}`}
+                                  >
+                                    <CheckCircle2
+                                      className={`w-3 h-3 ${service.textColor}`}
+                                    />
+                                  </div>
+                                ) : (
+                                  <Circle className="w-4 h-4 text-slate-600" />
+                                )}
+                                <span
+                                  className={`text-xs ${step.completed ? "text-slate-200" : "text-slate-500"}`}
+                                >
+                                  {step.name}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+
+                          <div className="text-xs text-slate-500">
+                            Last updated: {service.lastUpdated}
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                ))}
+              </Tabs>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Right Column */}
+        <div className="space-y-6">
+          {/* Project Stats */}
+          <Card className="bg-white/2 border-[#1e2a45] shadow-lg">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm font-medium text-slate-400">
+                Project Stats
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-400">Tasks Completed</span>
+                  <span className="text-blue-400">
+                    {services.reduce(
+                      (acc, service) =>
+                        acc +
+                        service.steps.filter((step) => step.completed).length,
+                      0
+                    )}{" "}
+                    /
+                    {services.reduce(
+                      (acc, service) => acc + service.steps.length,
+                      0
+                    )}
+                  </span>
+                </div>
+                <Progress
+                  value={Math.round(
+                    (services.reduce(
+                      (acc, service) =>
+                        acc +
+                        service.steps.filter((step) => step.completed).length,
+                      0
+                    ) /
+                      services.reduce(
+                        (acc, service) => acc + service.steps.length,
+                        0
+                      )) *
+                      100
+                  )}
+                  className="h-1 bg-black/50"
+                  indicatorClassName="bg-gradient-to-r from-blue-600 to-blue-400"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-400">Services Started</span>
+                  <span className="text-green-400">
+                    {services.length} / {services.length}
+                  </span>
+                </div>
+                <Progress
+                  value={100}
+                  className="h-1 bg-black/50"
+                  indicatorClassName="bg-gradient-to-r from-green-600 to-green-400"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-slate-400">Overall Completion</span>
+                  <span className="text-purple-400">
+                    {Math.round(
+                      services.reduce(
+                        (acc, service) => acc + service.percentage,
+                        0
+                      ) / services.length
+                    )}
+                    %
+                  </span>
+                </div>
+                <Progress
+                  value={Math.round(
+                    services.reduce(
+                      (acc, service) => acc + service.percentage,
+                      0
+                    ) / services.length
+                  )}
+                  className="h-1 bg-black/50"
+                  indicatorClassName="bg-gradient-to-r from-purple-600 to-purple-400"
+                />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Quick Actions */}
+          <Card className="bg-black/60 border-[#1e2a45] shadow-lg">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm font-medium text-slate-400">
+                Quick Actions
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-2 gap-3">
+                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-blue-950 hover:text-blue-400">
+                  <Bug className="w-5 h-5 mb-2" />
+                  <span className="text-xs">Report Bug</span>
+                </button>
+                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-green-950 hover:text-green-400">
+                  <RefreshCw className="w-5 h-5 mb-2" />
+                  <span className="text-xs">Sync Data</span>
+                </button>
+                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-purple-950 hover:text-purple-400">
+                  <FileText className="w-5 h-5 mb-2" />
+                  <span className="text-xs">View Docs</span>
+                </button>
+                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-amber-950 hover:text-amber-400">
+                  <Share2 className="w-5 h-5 mb-2" />
+                  <span className="text-xs">Share</span>
+                </button>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Project Notes */}
+          <Card className="bg-black/50 border-[#1e2a45] shadow-lg">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm font-medium text-slate-400">
+                Project Notes
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ProjectNotes />
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
-  )
+  );
 }

@@ -77,7 +77,7 @@ export default function Home() {
 
   return (
     // Dont Touch this div 
-    <div className="w-screen overflow-y-scroll bg-[#0E0E0E] text-white rounded-2xl mr-3 my-3">
+    <div className=" overflow-hidden bg-[#0E0E0E] text-white rounded-2xl mr-3 my-3">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
