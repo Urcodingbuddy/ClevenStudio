@@ -42,7 +42,7 @@ export default function HelpCenter() {
   };
 
   return (
-    <div className="w-screen bg-[#0c0c0c] text-white">
+    <div className="bg-[#0c0c0c] text-white">
       {/* Header */}
       <header className="py-6 px-6 md:px-12">
         <div className="flex items-center space-x-3 gap-10">
