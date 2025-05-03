@@ -68,13 +68,13 @@ export const AppBar = () => {
           {/* Desktop Navigation */}
           <ul className="hidden md:flex items-center gap-14 text-[#D9D9D9]">
             {/* <a href="" className="text-[1.1rem] hover:scale-110 transition duration-200 ease-in-out">Home</a> */}
-            <a
+            <Link
               href="#"
               
               className="text-[1.1rem] hover:scale-110 transition duration-200 ease-in-out"
             >
               Services
-            </a>
+            </Link>
             <Link
               href="/help-center"
               className="text-[1.1rem] hover:scale-110 transition duration-200 ease-in-out"
@@ -134,38 +134,38 @@ export const AppBar = () => {
         } duration-300 z-50 shadow-lg`}
       >
         <ul className="flex flex-col h-full items-center justify-evenly text-lg">
-          <a
+          <Link
             href="#"
             className="hover:scale-110 border-b h-10 text-center transition duration-200"
             onClick={() => setIsSidebarOpen(false)}
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className="hover:scale-110 border-b h-10 text-center transition duration-200"
             onClick={() => setIsSidebarOpen(false)}
           >
             Services
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className="hover:scale-110 border-b h-10 text-center transition duration-200"
             onClick={() => setIsSidebarOpen(false)}
           >
             Help
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className="hover:scale-110 border-b h-10 text-center transition duration-200"
             onClick={() => setIsSidebarOpen(false)}
           >
             Insight's
-          </a>
+          </Link>
 
-          <a href="/signup">
+          <Link href="/signup">
             <InteractiveHoverButton>Join Us</InteractiveHoverButton>
-          </a>
+          </Link>
         </ul>
       </div>
     </>
