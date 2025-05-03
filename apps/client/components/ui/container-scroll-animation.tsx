@@ -41,7 +41,7 @@ export const ContainerScroll = ({
       <div
         className="w-full relative"
         style={{
-          perspective: "900px",
+          perspective: "1200px",
         }}
       >
         <PunchLine/>
