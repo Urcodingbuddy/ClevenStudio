@@ -12,7 +12,7 @@ import { InitialLoader } from "@repo/landing/InitialLoader";
 export default function Home() {
   return (
     <>
-    <InitialLoader />
+    {/* <InitialLoader /> */}
     <AppBar/>
     <ContainerScroll>
     <img src="./dashboard-ex.jpg" alt="" />
