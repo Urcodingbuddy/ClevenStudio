@@ -145,7 +145,7 @@ export const PunchLine = () => {
               transition={{
                 duration: 1.2,
                 ease: [0.25, 0.1, 0.25, 1],
-                delay: 2.7,
+                delay: 0.5,
               }}
               className="relative z-10"
             >
@@ -166,7 +166,7 @@ export const PunchLine = () => {
                 className="text-zinc-400 text-sm sm:text-md md:text-lg lg:text-xl font-medium mb-5 sm:mb-16 md:mb-20 sm:max-w-2xl md:max-w-3xl leading-8 text-left md:text-center max-w-3xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 2.8 }}
+                transition={{ duration: 1, delay: 0.6 }}
               >
                 Say goodbye to messy website management. Cleven Studios makes
                 maintaining, optimizing, and enhancing your site effortless.
@@ -185,7 +185,7 @@ export const PunchLine = () => {
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 2.9 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
               >
                 <motion.p
                   className="text-sm md:text-md font-semibold text-zinc-400 group-hover:text-zinc-200"
@@ -219,17 +219,17 @@ export const PunchLine = () => {
             </div>
 
             {/* Background decorative elements */}
-            {/* <motion.div
+            <motion.div
               className="absolute z-10 inset-0 top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.8 }}
-              transition={{ duration: 2, delay: 3 }}
+              transition={{ duration: 2, delay: 0.5 }}
             >
               
               <motion.div
                 initial={{ x: 0, y: 0, rotate: 90, opacity: 0 }}
                 animate={{ x: -650, y: -270, rotate: 45, opacity: 1 }}
-                transition={{ duration: 1.8, ease: "easeInOut", delay: 3 }}
+                transition={{ duration: 1.8, ease: "easeInOut", delay: 2 }}
                 className="absolute top-1/2 left-1/2 w-[100px] h-[800px] bg-blue-400/50 blur-[50px]"
                 style={{
                   clipPath: "polygon(0% 33%, 100% 20%, 100% 100%, 0% 100%)",
@@ -240,14 +240,14 @@ export const PunchLine = () => {
               <motion.div
                 initial={{ x: 0, y: 0, rotate: 0, opacity: 0 }}
                 animate={{ x: 540, y: -560, rotate: 45, opacity: 1 }}
-                transition={{ duration: 1.8, ease: "easeInOut", delay: 3 }}
+                transition={{ duration: 1.8, ease: "easeInOut", delay: 2 }}
                 className="absolute top-1/2 left-1/2 w-[100px] h-[500px] bg-blue-400/50 blur-[50px]"
                 style={{
                   clipPath: "polygon(0% 0%, 100% 10%, 100% 90%, 0% 110%)",
                 }}
               />
             </motion.div>
-            */}
+           
           </div>
         </motion.div>
       )}
