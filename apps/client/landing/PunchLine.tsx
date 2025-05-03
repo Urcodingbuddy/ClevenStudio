@@ -137,7 +137,7 @@ export const PunchLine = () => {
         >
           <div
             ref={containerRef}
-            className="relative  pt-16 sm:pt-24 md:pt-32 lg:pt-40 flex flex-col items-center justify-center mx-auto w-[90vw] md:w-screen md:min-h-screen min-h-[85vh] bg-[#0c0c0c]"
+            className="relative  pt-16 sm:pt-24 md:pt-32 lg:pt-40 flex flex-col items-center justify-center mx-auto w-[90vw] md:w-screen md:min-h-[90vh] min-h-[80vh] bg-[#0c0c0c]"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
