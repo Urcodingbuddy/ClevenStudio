@@ -47,10 +47,10 @@ export default function Dashboard() {
       name: "Bug Fixing",
       icon: Bug,
       color: "blue",
-      bgColor: "bg-blue-950",
-      textColor: "text-blue-400",
-      borderColor: "border-blue-800",
-      progressColor: "from-blue-600 to-blue-400",
+      bgColor: "white",
+      textColor: "white",
+      borderColor: "border-zinc-800",
+      progressColor: "bg-white",
       steps: [
         { name: "Issue Reported", completed: true },
         { name: "Bug Identified", completed: true },
@@ -67,10 +67,10 @@ export default function Dashboard() {
       name: "Maintenance & Support",
       icon: Wrench,
       color: "green",
-      bgColor: "bg-green-950",
-      textColor: "text-green-400",
-      borderColor: "border-green-800",
-      progressColor: "from-green-600 to-green-400",
+      bgColor: "bg-[#1a1a1a]",
+      textColor: "text-white",
+      borderColor: "border-zinc-800",
+      gressColor: "bg-white",
       steps: [
         { name: "System Audit", completed: true },
         { name: "Performance Check", completed: true },
@@ -87,10 +87,10 @@ export default function Dashboard() {
       name: "SEO Optimization",
       icon: Search,
       color: "purple",
-      bgColor: "bg-purple-950",
-      textColor: "text-purple-400",
-      borderColor: "border-purple-800",
-      progressColor: "from-purple-600 to-purple-400",
+      bgColor: "bg-[#1a1a1a]",
+      textColor: "text-white",
+      borderColor: "border-zinc-800",
+      progressColor: "bg-white",
       steps: [
         { name: "Keyword Analysis", completed: true },
         { name: "On-Page SEO", completed: false },
@@ -107,10 +107,10 @@ export default function Dashboard() {
       name: "Website Speed Optimization",
       icon: Zap,
       color: "amber",
-      bgColor: "bg-amber-950",
-      textColor: "text-amber-400",
-      borderColor: "border-amber-800",
-      progressColor: "from-amber-600 to-amber-400",
+      bgColor: "bg-[#1a1a1a]",
+      textColor: "text-white",
+      borderColor: "border-zinc-800",
+      progressColor: "bg-white",
       steps: [
         { name: "Performance Audit", completed: true },
         { name: "Asset Optimization", completed: true },
@@ -127,10 +127,10 @@ export default function Dashboard() {
       name: "Content Update & Management",
       icon: FileText,
       color: "red",
-      bgColor: "bg-red-950",
-      textColor: "text-red-400",
+      bgColor: "bg-[#1a1a1a]",
+      textColor: "text-white",
       borderColor: "border-red-800",
-      progressColor: "from-red-600 to-red-400",
+      progressColor: "bg-white",
       steps: [
         { name: "Content Review", completed: true },
         { name: "Updates Planned", completed: true },
@@ -146,11 +146,11 @@ export default function Dashboard() {
       id: "social",
       name: "Social Media Integration",
       icon: Share2,
-      color: "teal",
-      bgColor: "bg-teal-950",
-      textColor: "text-teal-400",
+      color: "white",
+      bgColor: "bg-[#1a1a1a]",
+      textColor: "text-white",
       borderColor: "border-teal-800",
-      progressColor: "from-teal-600 to-teal-400",
+      progressColor: "bg-white",
       steps: [
         { name: "Platform Selection", completed: true },
         { name: "API Integration", completed: false },
@@ -428,7 +428,7 @@ export default function Dashboard() {
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-slate-400">Tasks Completed</span>
-                  <span className="text-blue-400">
+                  <span className="text-white/90">
                     {services.reduce(
                       (acc, service) =>
                         acc +
@@ -457,28 +457,28 @@ export default function Dashboard() {
                       100
                   )}
                   className="h-1 bg-black/50"
-                  indicatorClassName="bg-gradient-to-r from-blue-600 to-blue-400"
+                  indicatorClassName="bg-white"
                 />
               </div>
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-slate-400">Services Started</span>
-                  <span className="text-green-400">
+                  <span className="text-white/90">
                     {services.length} / {services.length}
                   </span>
                 </div>
                 <Progress
                   value={100}
                   className="h-1 bg-black/50"
-                  indicatorClassName="bg-gradient-to-r from-green-600 to-green-400"
+                  indicatorClassName="bg-white"
                 />
               </div>
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-slate-400">Overall Completion</span>
-                  <span className="text-purple-400">
+                  <span className="text-white/90">
                     {Math.round(
                       services.reduce(
                         (acc, service) => acc + service.percentage,
@@ -496,7 +496,7 @@ export default function Dashboard() {
                     ) / services.length
                   )}
                   className="h-1 bg-black/50"
-                  indicatorClassName="bg-gradient-to-r from-purple-600 to-purple-400"
+                  indicatorClassName="bg-white"
                 />
               </div>
             </CardContent>
@@ -511,19 +511,19 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 gap-3">
-                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-blue-950 hover:text-blue-400">
+                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-[#1a1a1a] hover:text-white">
                   <Bug className="w-5 h-5 mb-2" />
                   <span className="text-xs">Report Bug</span>
                 </button>
-                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-green-950 hover:text-green-400">
+                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-[#1a1a1a] hover:bg-[#1a1a1a]">
                   <RefreshCw className="w-5 h-5 mb-2" />
                   <span className="text-xs">Sync Data</span>
                 </button>
-                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-purple-950 hover:text-purple-400">
+                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-[#1a1a1a] hover:text-white">
                   <FileText className="w-5 h-5 mb-2" />
                   <span className="text-xs">View Docs</span>
                 </button>
-                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-amber-950 hover:text-amber-400">
+                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-[#1a1a1a] hover:text-white">
                   <Share2 className="w-5 h-5 mb-2" />
                   <span className="text-xs">Share</span>
                 </button>

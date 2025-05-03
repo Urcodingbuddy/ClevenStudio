@@ -69,7 +69,7 @@ export default function Sidebar() {
                       href={link.href}
                       className={cn(
                         "flex h-10 w-10 items-center justify-center rounded-md transition-colors",
-                        isActive ? "bg-blue-600 text-white" : "text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100",
+                        isActive ? "bg-white/10 backdrop-blur-sm text-white" : "text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100",
                       )}
                     >
                       <link.icon className="h-5 w-5" />

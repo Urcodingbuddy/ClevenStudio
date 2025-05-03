@@ -26,7 +26,7 @@ export function ProjectHeader({ project }: { project: ProjectProps }) {
               href={project.githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-3 py-1.5 transition-colors rounded-md bg-[#0c0c0c] hover:bg-blue-950 hover:text-blue-400"
+              className="flex items-center gap-2 px-3 py-1.5 transition-colors rounded-md bg-[#0c0c0c] hover:bg-[#1a1a1a] hover:text-white/"
             >
               <Github className="w-4 h-4" />
               <span>GitHub</span>

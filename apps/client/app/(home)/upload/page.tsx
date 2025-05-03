@@ -91,7 +91,7 @@ export default function Home() {
               <span className="text-sm text-gray-400">Step {step} of 2</span>
               <div className="w-24 h-2 bg-gray-800 rounded-full overflow-hidden">
                 <motion.div
-                  className="h-full bg-blue-600"
+                  className="h-full bg-white"
                   initial={{ width: "50%" }}
                   animate={{ width: step === 1 ? "50%" : "100%" }}
                   transition={{ duration: 0.3 }}
@@ -361,11 +361,11 @@ export default function Home() {
                       <label className="block mb-2">Project Structure</label>
                       <div className="p-4 rounded-md bg-[#161616] border border-gray-800 font-mono text-sm">
                         <div className="flex items-center gap-2 mb-2">
-                          <Folder size={16} className="text-blue-400" />
+                          <Folder size={16} className="text-gray-400" />
                           <span>project-root/</span>
                         </div>
                         <div className="ml-6 flex items-center gap-2 mb-2">
-                          <Folder size={16} className="text-blue-400" />
+                          <Folder size={16} className="text-gray-400" />
                           <span>src/</span>
                         </div>
                         <div className="ml-12 flex items-center gap-2 mb-2">

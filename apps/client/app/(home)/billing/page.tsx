@@ -97,7 +97,7 @@ export default function Home() {
   return (
 
 
-    <div className="bg-[#0c0c0c] text-white rounded-2xl mr-3 my-3 p-3 sm:p-6">
+    <div className="bg-[#0a0a0a] text-white rounded-2xl mr-3 my-3 p-3 sm:p-6">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
