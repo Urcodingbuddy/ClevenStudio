@@ -3,8 +3,8 @@ import React from "react";
 import { cn } from "@repo/lib/utils";
 
 interface InteractiveHoverButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
- 
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> { }
+
 export const InteractiveHoverButton = React.forwardRef<
   HTMLButtonElement,
   InteractiveHoverButtonProps
@@ -13,13 +13,13 @@ export const InteractiveHoverButton = React.forwardRef<
     <button
       ref={ref}
       className={cn(
-        "group relative w-auto cursor-pointer overflow-hidden rounded-full border border-[#67e8f9] bg-background p-2 px-6 text-center font-semibold",
+        "group relative w-auto cursor-pointer overflow-hidden rounded-full border border-[#CCCCCC] bg-background p-2 px-6 text-center font-semibold",
         className,
       )}
       {...props}
     >
       <div className="flex items-center gap-2">
-        <div className="h-2 w-2 rounded-full bg-gradient-to-r from-[#67e8f9] to-[#50d7f8] animate-pulse transition-all duration-300 group-hover:scale-[100.8]"></div>
+        <div className="h-2 w-2 rounded-full bg-gradient-to-r from-[#CCCCCC] to-[#BFBFBF] group-hover:scale-[100.8]"></div>
         <span className="inline-block transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
           {children}
         </span>
@@ -31,5 +31,5 @@ export const InteractiveHoverButton = React.forwardRef<
     </button>
   );
 });
- 
+
 InteractiveHoverButton.displayName = "InteractiveHoverButton";

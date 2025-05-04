@@ -154,7 +154,7 @@ export const PunchLine = () => {
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 pt-16 md:pt-10 pb-2 sm:pb-6 mb-2 md:mb-10 text-left md:text-center max-w-6xl"
               >
                 Unleashing the Power of Performance to Make Your{" "}
-                <span className="inline-block bg-gradient-to-r from-[#67e8f9] to-[#3b82f6] bg-clip-text text-transparent animate-pulse">
+                <span className="inline-block bg-[#BFBFBF] bg-clip-text text-transparent text-transparent animate-pulse">
                   Website Invincible.
                 </span>
               </h1>
@@ -223,14 +223,14 @@ export const PunchLine = () => {
               className="absolute z-10 inset-0 top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.8 }}
-              transition={{ duration: 2, delay: 0.5 }}
+              transition={{ duration: 1.2, delay: 0.3 }}
             >
               
               <motion.div
-                initial={{ x: 0, y: 0, rotate: 90, opacity: 0 }}
-                animate={{ x: -650, y: -270, rotate: 45, opacity: 1 }}
-                transition={{ duration: 1.8, ease: "easeInOut", delay: 2 }}
-                className="absolute top-1/2 left-1/2 w-[100px] h-[800px] bg-blue-400/50 blur-[50px]"
+                initial={{ x: 0, y: -270, rotate: 90, opacity: 0 }}
+                animate={{ x: -680, y: -270, rotate : 45, opacity: 1 }}
+                transition={{ duration: 1.2, ease: "easeInOut", delay: 0.3 }}
+                className="absolute top-1/2 left-1/2 w-[100px] h-[800px] bg-[#CCCCCC] blur-[50px]"
                 style={{
                   clipPath: "polygon(0% 33%, 100% 20%, 100% 100%, 0% 100%)",
                 }}
@@ -239,9 +239,9 @@ export const PunchLine = () => {
               
               <motion.div
                 initial={{ x: 0, y: 0, rotate: 0, opacity: 0 }}
-                animate={{ x: 540, y: -560, rotate: 45, opacity: 1 }}
-                transition={{ duration: 1.8, ease: "easeInOut", delay: 2 }}
-                className="absolute top-1/2 left-1/2 w-[100px] h-[500px] bg-blue-400/50 blur-[50px]"
+                animate={{ x: 600, y: -560, rotate: 45, opacity: 1 }}
+                transition={{ duration: 1.2, ease: "easeInOut", delay: 0.3 }}
+                className="absolute top-1/2 left-1/2 w-[100px] h-[500px] bg-[#CCCCCC] blur-[50px]"
                 style={{
                   clipPath: "polygon(0% 0%, 100% 10%, 100% 90%, 0% 110%)",
                 }}
