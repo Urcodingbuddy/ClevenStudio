@@ -4,20 +4,19 @@
 > **Reliable. Scalable. Stress-free. Simple. Intuitive. Never boring.**  
 > Cleven Studios makes maintaining, optimizing, and enhancing your site effortless.
 
----
+
 
 ## 🚀 Getting Started – Local Setup Guide
 
 Follow these steps to run ClevenStudio locally on your machine.
 
----
+
 
 ### 📦 Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/Urcodingbuddy/ClevenStudio.git
 ```
-
 ---
 
 ### 🔐 Step 2: Set Up Environment Variables
@@ -39,7 +38,6 @@ GITHUB_CLIENT_ID="Get it from GitHub Apps"
 GITHUB_CLIENT_SECRET="Get it from GitHub Apps"
 ```
 
----
 
 #### 🛢️ Database `.env`
 
@@ -77,14 +75,13 @@ bun install
 bun dev
 ```
 
----
 
 ## ✅ You're All Set!
 
 The application should now be running locally. Open your browser and check the magic! ✨
                                                          
 
- 
+ ---
 
 ## 🤝 Open Source Contribution Guide
 
@@ -127,7 +124,6 @@ We welcome contributions from everyone! Here's how you can get started:
 8. **Create a Pull Request**
    - Go to your fork on GitHub and click on `Compare & Pull Request`.
 
----
 
 > 💡 **Tips:**
 > - Reference the issue number in your PR.
