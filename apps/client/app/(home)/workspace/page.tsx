@@ -234,6 +234,7 @@ export default function Dashboard() {
                     className="p-4 mt-0"
                   >
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3 mb-4">
+
                       {/* Service Progress Card */}
                       <Card
                         className={`bg-[#0c0c0c] border-${service.borderColor} shadow-lg`}
@@ -408,6 +409,7 @@ export default function Dashboard() {
                         </div>
                       </CardContent>
                     </Card>
+
                   </TabsContent>
                 ))}
               </Tabs>
@@ -416,7 +418,7 @@ export default function Dashboard() {
         </div>
 
         {/* Right Column */}
-        <div className="space-y-6">
+        <div className="space-y-6 flex flex-col justify-between">
           {/* Project Stats */}
           <Card className="bg-white/2 border-[#1e2a45] shadow-lg">
             <CardHeader className="pb-2">
@@ -502,35 +504,6 @@ export default function Dashboard() {
             </CardContent>
           </Card>
 
-          {/* Quick Actions */}
-          <Card className="bg-black/60 border-[#1e2a45] shadow-lg">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-slate-400">
-                Quick Actions
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-2 gap-3">
-                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-[#1a1a1a] hover:text-white">
-                  <Bug className="w-5 h-5 mb-2" />
-                  <span className="text-xs">Report Bug</span>
-                </button>
-                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-[#1a1a1a] hover:bg-[#1a1a1a]">
-                  <RefreshCw className="w-5 h-5 mb-2" />
-                  <span className="text-xs">Sync Data</span>
-                </button>
-                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-[#1a1a1a] hover:text-white">
-                  <FileText className="w-5 h-5 mb-2" />
-                  <span className="text-xs">View Docs</span>
-                </button>
-                <button className="flex flex-col items-center justify-center p-4 transition-colors rounded-md bg-[#0c0c0c] hover:bg-[#1a1a1a] hover:text-white">
-                  <Share2 className="w-5 h-5 mb-2" />
-                  <span className="text-xs">Share</span>
-                </button>
-              </div>
-            </CardContent>
-          </Card>
-
           {/* Project Notes */}
           <Card className="bg-black/50 border-[#1e2a45] shadow-lg">
             <CardHeader className="pb-2">
@@ -542,6 +515,7 @@ export default function Dashboard() {
               <ProjectNotes />
             </CardContent>
           </Card>
+
         </div>
       </div>
     </div>
