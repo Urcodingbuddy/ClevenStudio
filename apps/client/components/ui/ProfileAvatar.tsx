@@ -26,7 +26,7 @@ export default function ProfileAvatar({ session }: { session: any }) {
       <Avatar className="h-8 w-8 border border-zinc-800">
         {session.user?.image ? (
           <AvatarImage
-            src={session.user.image || "/placeholder.svg"}
+            src={session?.user?.image || "/placeholder.svg"}
             alt={session.user.name || "User"}
           />
         ) : (
