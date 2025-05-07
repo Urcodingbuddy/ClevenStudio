@@ -169,25 +169,19 @@ export default function Dashboard() {
     services.find((service) => service.id === activeTab) || services[0];
 
   return (
-    <div className="min-h-screen p-6 space-y-6">
-      <div className="fixed">
-        <div className="absolute opacity-40">
-          <div className="absolute bottom-[20%] right-[-20%] w-[500px] h-[500px] rounded-b-lg bg-white/40 blur-[100px] "></div>
-          <div className="absolute top-[10%] left-[50%] rotate-45 w-[600px] h-[100px]  bg-white/60 blur-[100px]"></div>
-        </div>
-      </div>
+    <div className="min-h-screen bg-[#09090b] p-6 space-y-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <h1 className="text-2xl font-semibold text-white">
             Project Overview
           </h1>
           <span
-            className={`px-2 py-1 text-xs font-medium rounded-full ${activeService?.bgColor} ${activeService?.textColor}`}
+            className={`px-2 py-1 border flex justify-evenly gap-1 w-16 items-center text-sm font-medium rounded-full ${activeService?.bgColor} ${activeService?.textColor}`}
           >
-            LIVE
+            Live <Zap className="w-3" />
           </span>
         </div>
-        <button className="p-2 rounded-full bg-[#131a29] text-slate-400 hover:text-white">
+        <button className="p-2 rounded-full bg-[#09090b] text-white hover:-rotate-360 transition transform-3d border duration-1000">
           <RefreshCw className="w-4 h-4" />
         </button>
       </div>
@@ -199,11 +193,9 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* Service Details */}
         <div className="lg:col-span-2">
-          <Card className="bg-black/50 backdrop-blur-3xl border-[#1e2a45] shadow-lg overflow-hidden">
-            <CardHeader className="pb-2 border-b border-[#1e2a45]">
-              <CardTitle className="text-sm font-medium text-slate-400">
-                Service Details
-              </CardTitle>
+          <Card className="bg-[#09090b] backdrop-blur-3xl border shadow-lg overflow-hidden">
+            <CardHeader className="pb-2 border-b ">
+              <CardTitle className="text-lg">Service Details</CardTitle>
             </CardHeader>
             <CardContent className="p-0">
               <Tabs
@@ -212,8 +204,8 @@ export default function Dashboard() {
                 onValueChange={setActiveTab}
                 className="w-full"
               >
-                <div className="px-4 py-2 border-b border-[#1e2a45]">
-                  <TabsList className="h-auto p-1 bg-[#0c0c0c] rounded-md flex flex-wrap gap-1">
+                <div className="px-4 py-2 border-b">
+                  <TabsList className="h-auto p-1 bg-[#09090b] rounded-md flex flex-wrap gap-1">
                     {services.map((service) => (
                       <TabsTrigger
                         key={service.id}
@@ -234,33 +226,29 @@ export default function Dashboard() {
                     className="p-4 mt-0"
                   >
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3 mb-4">
-
                       {/* Service Progress Card */}
                       <Card
-                        className={`bg-[#0c0c0c] border-${service.borderColor} shadow-lg`}
+                        className={`bg-[#09090b] border-${service.borderColor} shadow-lg`}
                       >
                         <CardHeader className="pb-2">
-                          <CardTitle className="text-sm font-medium text-slate-400">
+                          <CardTitle className="text-md font-medium text-muted-foreground">
                             Overall Progress
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
                           <div className="flex items-center justify-between">
                             <span
-                              className={`text-2xl font-bold ${service.textColor}`}
+                              className={`text-xl font-bold ${service.textColor}`}
                             >
                               {service.percentage}%
-                            </span>
-                            <service.icon
-                              className={`w-6 h-6 ${service.textColor}`}
-                            />
+                            </span>{" "}
                           </div>
                           <Progress
                             value={service.percentage}
-                            className="h-2 mt-3 bg-black/50"
+                            className="h-1 mt-3 bg-muted"
                             indicatorClassName={`bg-gradient-to-r ${service.progressColor}`}
                           />
-                          <p className="mt-2 text-xs text-slate-400">
+                          <p className="mt-2 text-xs text-muted-foreground">
                             Last updated: {service.lastUpdated}
                           </p>
                         </CardContent>
@@ -268,17 +256,17 @@ export default function Dashboard() {
 
                       {/* Service Status Card */}
                       <Card
-                        className={`bg-[#0c0c0c] border-${service.borderColor} shadow-lg`}
+                        className={`bg-[#09090b] border-${service.borderColor} shadow-lg`}
                       >
                         <CardHeader className="pb-2">
-                          <CardTitle className="text-sm font-medium text-slate-400">
+                          <CardTitle className="text-md font-medium text-muted-foreground">
                             Status
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
                           <div className="flex items-center justify-between">
                             <span
-                              className={`text-2xl font-bold ${service.textColor}`}
+                              className={`text-xl font-bold ${service.textColor}`}
                             >
                               {service.status}
                             </span>
@@ -286,19 +274,18 @@ export default function Dashboard() {
                               className={`flex items-center justify-center w-6 h-6 rounded-full ${service.bgColor}`}
                             >
                               <span
-                                className={`w-3 h-3 rounded-full ${service.textColor} animate-pulse`}
+                                className={`w-3  rounded-full ${service.textColor} animate-pulse`}
                               ></span>
                             </span>
                           </div>
-                          <div className="flex items-center mt-4 text-xs text-slate-400">
-                            <div className="w-full h-1 bg-black/50">
-                              <div
-                                className={`h-1 bg-gradient-to-r ${service.progressColor}`}
-                                style={{ width: `${service.percentage}%` }}
-                              ></div>
-                            </div>
-                          </div>
-                          <p className="mt-2 text-xs text-slate-400">
+
+                          <Progress
+                            value={service.percentage}
+                            className="h-1 mt-3 bg-muted"
+                            indicatorClassName={`bg-gradient-to-r ${service.progressColor}`}
+                          />
+
+                          <p className="mt-2 text-xs text-muted-foreground">
                             {
                               service.steps.filter((step) => step.completed)
                                 .length
@@ -310,17 +297,17 @@ export default function Dashboard() {
 
                       {/* Time Remaining Card */}
                       <Card
-                        className={`bg-[#0c0c0c] border-${service.borderColor} shadow-lg`}
+                        className={`bg-[#09090b] border-${service.borderColor} shadow-lg`}
                       >
                         <CardHeader className="pb-2">
-                          <CardTitle className="text-sm font-medium text-slate-400">
+                          <CardTitle className="text-sm font-medium text-muted-foreground">
                             Time Remaining
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
                           <div className="flex items-center justify-between">
                             <span
-                              className={`text-2xl font-bold ${service.textColor}`}
+                              className={`text-xl font-bold ${service.textColor}`}
                             >
                               {Math.floor(Math.random() * 30) + 1} days
                             </span>
@@ -330,49 +317,46 @@ export default function Dashboard() {
                               <RefreshCw className="w-4 h-4" />
                             </span>
                           </div>
-                          <div className="h-2 mt-3 rounded-full bg-black/50">
-                            <div
-                              className={`h-2 rounded-full bg-gradient-to-r ${service.progressColor}`}
-                              style={{ width: "70%" }}
-                            ></div>
-                          </div>
-                          <p className="mt-2 text-xs text-slate-400">
+                          <Progress
+                            value={service.percentage}
+                            className="h-1 mt-3 bg-muted"
+                            indicatorClassName={`bg-gradient-to-r ${service.progressColor}`}
+                          />
+                          <p className="mt-2 text-xs text-muted-foreground">
                             Deadline: {projectDetails.deadline}
                           </p>
                         </CardContent>
                       </Card>
                     </div>
 
-                    <Card className="bg-[#0c0c0c] border-[#1e2a45] shadow-lg mb-0">
+                    <Card className="bg-[#09090b]  shadow-lg mb-0">
                       <CardHeader className="pb-2 flex flex-row items-center justify-between">
                         <div className="flex items-center gap-2">
                           <div
                             className={`flex items-center justify-center w-6 h-6 rounded-full ${service.bgColor} ${service.textColor}`}
                           >
-                            <service.icon className="w-3 h-3" />
+                            <service.icon className="w-5 h-5" />
                           </div>
-                          <CardTitle className="text-base font-medium">
+                          <CardTitle className="text-md font-medium">
                             {service.name}
                           </CardTitle>
                         </div>
                         <div
-                          className={`px-2 py-1 text-xs font-medium rounded-full ${service.bgColor} ${service.textColor}`}
+                          className={`px-2 py-1 text-sm text-muted-foreground font-medium rounded-full ${service.bgColor} ${service.textColor}`}
                         >
+                          
+                          <span className="text-white">
+                            {service.percentage}%
+                          </span>{" "}
                           {service.status}
                         </div>
                       </CardHeader>
                       <CardContent>
                         <div className="space-y-4">
-                          <div className="space-y-1">
-                            <div className="flex items-center justify-between text-xs">
-                              <span className="text-slate-400">Progress</span>
-                              <span className={service.textColor}>
-                                {service.percentage}%
-                              </span>
-                            </div>
+                          <div className="space-y-1 flex justify-evenly items-center gap-2">
                             <Progress
                               value={service.percentage}
-                              className="h-2 bg-[#0c0c0c]"
+                              className="h-2 bg-muted"
                               indicatorClassName={`bg-gradient-to-r ${service.progressColor}`}
                             />
                           </div>
@@ -381,7 +365,7 @@ export default function Dashboard() {
                             {service.steps.map((step, index) => (
                               <div
                                 key={index}
-                                className="flex items-center gap-2 p-2 rounded-md bg-[#0c0c0c]"
+                                className="flex items-center gap-2 p-2 rounded-md bg-[#09090b]"
                               >
                                 {step.completed ? (
                                   <div
@@ -409,7 +393,6 @@ export default function Dashboard() {
                         </div>
                       </CardContent>
                     </Card>
-
                   </TabsContent>
                 ))}
               </Tabs>
@@ -420,16 +403,16 @@ export default function Dashboard() {
         {/* Right Column */}
         <div className="space-y-6 flex flex-col justify-between">
           {/* Project Stats */}
-          <Card className="bg-white/2 border-[#1e2a45] shadow-lg">
+          <Card className="bg-[#09090b] shadow-lg">
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-slate-400">
+              <CardTitle className="text-lg font-medium ">
                 Project Stats
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="text-slate-400">Tasks Completed</span>
+                  <span className="text-muted-foreground">Tasks Completed</span>
                   <span className="text-white/90">
                     {services.reduce(
                       (acc, service) =>
@@ -458,28 +441,32 @@ export default function Dashboard() {
                       )) *
                       100
                   )}
-                  className="h-1 bg-black/50"
+                  className="h-1 bg-muted"
                   indicatorClassName="bg-white"
                 />
               </div>
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="text-slate-400">Services Started</span>
+                  <span className="text-muted-foreground">
+                    Services Started
+                  </span>
                   <span className="text-white/90">
                     {services.length} / {services.length}
                   </span>
                 </div>
                 <Progress
                   value={100}
-                  className="h-1 bg-black/50"
+                  className="h-1 bg-muted"
                   indicatorClassName="bg-white"
                 />
               </div>
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="text-slate-400">Overall Completion</span>
+                  <span className="text-muted-foreground">
+                    Overall Completion
+                  </span>
                   <span className="text-white/90">
                     {Math.round(
                       services.reduce(
@@ -497,7 +484,7 @@ export default function Dashboard() {
                       0
                     ) / services.length
                   )}
-                  className="h-1 bg-black/50"
+                  className="h-1 bg-muted"
                   indicatorClassName="bg-white"
                 />
               </div>
@@ -505,9 +492,9 @@ export default function Dashboard() {
           </Card>
 
           {/* Project Notes */}
-          <Card className="bg-black/50 border-[#1e2a45] shadow-lg">
+          <Card className="bg-[#09090b]  shadow-lg">
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-slate-400">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
                 Project Notes
               </CardTitle>
             </CardHeader>
@@ -515,7 +502,6 @@ export default function Dashboard() {
               <ProjectNotes />
             </CardContent>
           </Card>
-
         </div>
       </div>
     </div>
