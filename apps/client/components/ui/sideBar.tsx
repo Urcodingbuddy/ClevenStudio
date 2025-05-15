@@ -13,37 +13,26 @@ const navigationLinks = [
     label: "WorkSpace",
     href: "/workspace",
     icon: Radar,
+    target : ""
   },
-  // {
-  //   label: "Files",
-  //   href: "/files",
-  //   icon: FileText,
-  // },
-  // {
-  //   label: "Search",
-  //   href: "/search",
-  //   icon: Search,
-  // },
   {
     label: "Upload",
     href: "/upload",
     icon: CloudUpload,
+    target : ""
   },
   {
     label: "Billing",
     href: "/billing",
     icon: ReceiptText,
+    target : ""
   },
   {
     label: "Market Place",
     href: "/market-place",
     icon: Store,
+    target : "_blank"
   },
-  // {
-  //   label: "Settings",
-  //   href: "/settings",
-  //   icon: Settings,
-  // },
 ]
 
 export default function Sidebar() {
@@ -67,6 +56,7 @@ export default function Sidebar() {
                   <TooltipTrigger asChild>
                     <Link
                       href={link.href}
+                      target={link.target}
                       className={cn(
                         "flex h-10 w-10 items-center justify-center rounded-md transition-colors",
                         isActive ? "bg-white/10 backdrop-blur-sm text-white" : "text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100",
