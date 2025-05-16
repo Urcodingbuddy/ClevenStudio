@@ -8,21 +8,15 @@ datasource db {
 }
 
 model User {
-  id                  String    @id @default(cuid())
-  name                String
-  email               String    @unique
-  password            String?
-  phone               String?
-  auth_type           AuthType
-  imageURL            String?
-  createdAt           DateTime? @default(now())
-  lastPasswordUpdated DateTime?
-}
-
-enum AuthType {
-  Google
-  Github
-  credentials
+  id             String    @id @default(cuid())
+  name           String
+  email          String    @unique
+  password       String?
+  phone          String?
+  imageUrl       String?
+  createdAt      DateTime  @default(now())
+  lastPassUpdate DateTime?
+  projects       Project[] @relation("UserProjects")
 }
 
 model Plan {
@@ -31,7 +25,85 @@ model Plan {
   category  String
   slug      String    @unique
   price     Float
-  feature   String[]
-  createdAt DateTime? @default(now())
   title     String?
+  createdAt DateTime  @default(now())
+  features  Feature[]
+  projects  Project[]
+}
+
+model Project {
+  id        String    @id @default(cuid())
+  name      String
+  userId    String
+  planId    String?
+  source    String
+  startDate DateTime
+  endDate   DateTime?
+  deadline  DateTime?
+  noteid    String
+  serviceId String
+  progress  Int       @default(0)
+
+  user    User            @relation("UserProjects", fields: [userId], references: [id])
+  plan    Plan?           @relation(fields: [planId], references: [id])
+  service Service[]       @relation("ProjectServices")
+  status  ProjectStatus[]
+  tasks   Task[]
+}
+
+model Task {
+  id          String     @id @default(cuid())
+  title       String
+  description String?
+  status      TaskStatus @default(PENDING)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id])
+  serviceId String
+  service   Service @relation(fields: [serviceId], references: [id])
+}
+
+
+model Feature {
+  id      String @id @default(cuid())
+  content String
+  plan    Plan   @relation(fields: [planId], references: [id])
+  planId  String
+}
+
+model Service {
+  id          String       @id @default(cuid())
+  name        String
+  tasks       Task[]
+  projects    Project[]    @relation("ProjectServices")
+  checkpoints Checkpoint[]
+}
+
+model Checkpoint {
+  id        String  @id @default(cuid())
+  title     String
+  serviceId String
+  service   Service @relation(fields: [serviceId], references: [id])
+}
+
+enum TaskStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELED
+}
+
+enum ProjectStatus {
+  PENDING
+  STARTED
+  WORKING
+  TESTING
+  DONE
+}
+
+enum NoteStatus {
+  PENDING
+  RESOLVED
 }
