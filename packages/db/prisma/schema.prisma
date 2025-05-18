@@ -8,84 +8,87 @@ datasource db {
 }
 
 model User {
-  id             String    @id @default(cuid())
+  id             String        @id @default(cuid())
   name           String
-  email          String    @unique
+  email          String        @unique
   password       String?
   phone          String?
   imageUrl       String?
-  createdAt      DateTime  @default(now())
+  createdAt      DateTime      @default(now())
   lastPassUpdate DateTime?
-  projects       Project[] @relation("UserProjects")
+  projects       Project[]     @relation("UserProjects")
+  userServices   UserService[] @relation("UserServices")
+  tasks          Task[]        @relation("UserTasks")
 }
 
 model Plan {
-  id        String    @id @default(cuid())
-  name      String
-  category  String
-  slug      String    @unique
-  price     Float
-  title     String?
-  createdAt DateTime  @default(now())
-  features  Feature[]
-  projects  Project[]
+  id           String        @id @default(cuid())
+  name         String
+  category     String
+  slug         String        @unique
+  price        Float
+  title        String?
+  createdAt    DateTime      @default(now())
+  features     Feature[]
+  userServices UserService[]
 }
 
 model Project {
   id        String    @id @default(cuid())
   name      String
   userId    String
-  planId    String?
   source    String
   startDate DateTime
   endDate   DateTime?
   deadline  DateTime?
-  noteid    String
-  serviceId String
   progress  Int       @default(0)
 
-  user    User            @relation("UserProjects", fields: [userId], references: [id])
-  plan    Plan?           @relation(fields: [planId], references: [id])
-  service Service[]       @relation("ProjectServices")
-  status  ProjectStatus[]
-  tasks   Task[]
+  user   User            @relation("UserProjects", fields: [userId], references: [id])
+  status ProjectStatus[]
+  tasks  Task[]
+
+  @@index([userId])
 }
 
 model Task {
   id          String     @id @default(cuid())
   title       String
-  description String?
+  description String
   status      TaskStatus @default(PENDING)
+  startDate   DateTime?
+  endDate     DateTime?
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
 
-  projectId String
-  project   Project @relation(fields: [projectId], references: [id])
-  serviceId String
-  service   Service @relation(fields: [serviceId], references: [id])
-}
+  userId        String
+  user          User        @relation("UserTasks", fields: [userId], references: [id])
+  projectId     String
+  project       Project     @relation(fields: [projectId], references: [id])
+  userServiceId String
+  userService   UserService @relation(fields: [userServiceId], references: [id])
 
+  @@index([userId])
+  @@index([projectId])
+  @@index([userServiceId])
+}
 
 model Feature {
-  id      String @id @default(cuid())
-  content String
-  plan    Plan   @relation(fields: [planId], references: [id])
-  planId  String
+  id     String @id @default(cuid())
+  label  String
+  value  Int
+  planId String
+  plan   Plan   @relation(fields: [planId], references: [id])
 }
 
-model Service {
-  id          String       @id @default(cuid())
-  name        String
-  tasks       Task[]
-  projects    Project[]    @relation("ProjectServices")
-  checkpoints Checkpoint[]
-}
-
-model Checkpoint {
-  id        String  @id @default(cuid())
-  title     String
-  serviceId String
-  service   Service @relation(fields: [serviceId], references: [id])
+model UserService {
+  id        String   @id @default(cuid())
+  user      User     @relation("UserServices", fields: [userId], references: [id])
+  userId    String
+  plan      Plan     @relation(fields: [planId], references: [id])
+  planId    String
+  createdAt DateTime @default(now())
+  taskLimit Int
+  tasks     Task[]
 }
 
 enum TaskStatus {
@@ -103,7 +106,3 @@ enum ProjectStatus {
   DONE
 }
 
-enum NoteStatus {
-  PENDING
-  RESOLVED
-}
