@@ -74,7 +74,6 @@ model Task {
   @@index([userServiceId])
 }
 
-
 model Message {
   id        String   @id @default(cuid())
   taskId    String
