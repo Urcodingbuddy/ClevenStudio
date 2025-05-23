@@ -1,4 +1,4 @@
-import { GlowCards } from "./GlowCards"
+import { GlowCards } from "@repo/components/ui/GlowCards"
 
 export const EssentialSection = () => {
    return (

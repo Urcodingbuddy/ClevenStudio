@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { HoverBorderGradient } from "@repo/components/ui/hover-border-gradient";
+import { HoverBorderGradient } from "@repo/packages/ui/hover-border-gradient";
 
 export function HoverBtn() {
   return (

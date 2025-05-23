@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { InteractiveHoverButton } from "@repo/components/ui/hoverBtn";
+import { InteractiveHoverButton } from "@repo/packages/ui/hoverBtn";
 
 // Register GSAP plugins
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -231,10 +231,6 @@ export const PunchLine = () => {
                 animate={{ x: -690, y: -250, rotate: 45, opacity: 1 }}
                 transition={{ duration: 1.8, ease: "easeInOut", delay: 2 }}
                 className="absolute top-1/2 left-1/2 w-[100px] h-[800px] bg-blue-400/50 blur-[50px]"
-                initial={{ x: 0, y: -270, rotate: 90, opacity: 0 }}
-                animate={{ x: -680, y: -270, rotate : 45, opacity: 1 }}
-                transition={{ duration: 1.2, ease: "easeInOut", delay: 0.3 }}
-                className="absolute top-1/2 left-1/2 w-[100px] h-[800px] bg-[#CCCCCC] blur-[50px]"
                 style={{
                   clipPath: "polygon(0% 33%, 100% 20%, 100% 100%, 0% 100%)",
                 }}

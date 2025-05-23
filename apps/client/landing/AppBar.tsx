@@ -1,11 +1,11 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { InteractiveHoverButton } from "@repo/components/ui/hoverBtn";
+import { InteractiveHoverButton } from "@repo/packages/ui/hoverBtn";
 
 gsap.registerPlugin(ScrollTrigger);
 
