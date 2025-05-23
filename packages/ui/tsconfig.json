@@ -4,7 +4,8 @@
     "outDir": "dist",
     "paths" : {
       "@repo/components/ui/*":["./../../apps/client/components/ui/*"],
-      "@repo/lib/utils/*":["../../../apps/client/lib/utils/*"]
+      "@repo/lib/*":["../../apps/client/lib/*"],
+      
 
     }
   },
