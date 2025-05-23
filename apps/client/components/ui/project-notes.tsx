@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@repo/components/ui/button"
-import { Textarea } from "@repo/components/ui/textarea"
+import { Button } from "@repo/packages/ui/button"
+import { Textarea } from "@repo/packages/ui/textarea"
 import { User, Clock, Send } from "lucide-react"
 
 const initialNotes = [

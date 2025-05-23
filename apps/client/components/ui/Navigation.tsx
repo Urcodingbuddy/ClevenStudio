@@ -3,8 +3,8 @@
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { useIsMobile } from "@repo/lib/hooks/use-mobile";
-import DesktopNavigation from "./DesktopNav";
-import MobileNavigation from "./MobileNav";
+import DesktopNavigation from "@repo/packages/ui/DesktopNav";
+import MobileNavigation from "@repo/packages/ui/MobileNav";
 
 export function Navigation() {
   const pathname = usePathname();

@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@repo/components/ui/card"
+import { Card, CardContent } from "@repo/packages/ui/card"
 import { Github, Calendar, User, Clock } from "lucide-react"
 import Link from "next/link"
 
