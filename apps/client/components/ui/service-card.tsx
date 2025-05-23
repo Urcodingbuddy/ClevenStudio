@@ -51,7 +51,7 @@ export function ServiceCard({ service }: { service: ServiceProps | undefined }) 
 
       <div className="space-y-1">
         <div className="flex items-center justify-between text-xs">
-          <span className="text-slate-400">Progress</span>
+          <span className="text-muted-foreground">Progress</span>
           <span className={service.textColor || ''}>{service.percentage ?? 0}%</span>
         </div>
         <Progress

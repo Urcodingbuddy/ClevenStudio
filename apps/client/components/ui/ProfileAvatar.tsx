@@ -1,26 +1,40 @@
-"use client"
-import Image from "next/image";
+"use client";
+
+import { User } from "lucide-react";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@repo/components/ui/avatar";
 import Link from "next/link";
 
 export default function ProfileAvatar({ session }: { session: any }) {
-  const imageSrc = session?.user?.image
-    ? session.user.image
-    : `https://robohash.org/${encodeURIComponent(session?.user?.name || "user")}.png`;
-
-  const altText = session?.user ? "Profile" : "User";
+  if (!session) {
+    return (
+      <Link href={"/profile"}>
+        <Avatar className="h-8 w-8 border border-zinc-800">
+          <AvatarFallback className="bg-zinc-900 text-zinc-400">
+            <User className="h-4 w-4" />
+          </AvatarFallback>
+        </Avatar>
+      </Link>
+    );
+  }
 
   return (
-    <Link
-      href="/profile"
-      className="flex h-10 w-10 items-center justify-center rounded-full text-white"
-    >
-      <Image
-        src={imageSrc}
-        alt={altText}
-        className="rounded-full border border-white"
-        width={30}
-        height={30}
-      />
+    <Link href={"/profile"}>
+      <Avatar className="h-8 w-8 border border-zinc-800">
+        {session.user?.image ? (
+          <AvatarImage
+            src={session?.user?.image || "/placeholder.svg"}
+            alt={session.user.name || "User"}
+          />
+        ) : (
+          <AvatarFallback className="bg-zinc-900 text-zinc-400">
+            {session.user?.name?.[0] || <User className="h-4 w-4" />}
+          </AvatarFallback>
+        )}
+      </Avatar>
     </Link>
   );
 }

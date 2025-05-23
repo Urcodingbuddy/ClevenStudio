@@ -137,7 +137,7 @@ export const PunchLine = () => {
         >
           <div
             ref={containerRef}
-            className="relative  pt-16 sm:pt-24 md:pt-32 lg:pt-40 flex flex-col items-center justify-center mx-auto w-[90vw] md:w-screen md:min-h-[90vh] min-h-[80vh] bg-[#0c0c0c]"
+            className="relative  pt-16 sm:pt-24 md:pt-32 lg:pt-50 flex flex-col items-center justify-center mx-auto w-[90vw] md:w-screen md:min-h-[90vh] min-h-[80vh] bg-[#0c0c0c]"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -227,6 +227,10 @@ export const PunchLine = () => {
             >
               
               <motion.div
+                initial={{ x: 0, y: 0, rotate: 90, opacity: 0 }}
+                animate={{ x: -690, y: -250, rotate: 45, opacity: 1 }}
+                transition={{ duration: 1.8, ease: "easeInOut", delay: 2 }}
+                className="absolute top-1/2 left-1/2 w-[100px] h-[800px] bg-blue-400/50 blur-[50px]"
                 initial={{ x: 0, y: -270, rotate: 90, opacity: 0 }}
                 animate={{ x: -680, y: -270, rotate : 45, opacity: 1 }}
                 transition={{ duration: 1.2, ease: "easeInOut", delay: 0.3 }}

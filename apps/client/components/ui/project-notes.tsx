@@ -45,7 +45,7 @@ export function ProjectNotes() {
           placeholder="Add a note about this project..."
           value={newNote}
           onChange={(e) => setNewNote(e.target.value)}
-          className="min-h-[80px] bg-[#0c0c0c] border-1 border-[#1e2a45] text-sm resize-none focus-visible:gray-500"
+          className="min-h-[80px] bg-[#0c0c0c] border-1  text-sm resize-none focus-visible:gray-500"
         />
       </div>
       <div className="flex justify-end">

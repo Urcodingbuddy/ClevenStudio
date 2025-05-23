@@ -1,84 +1,145 @@
-# Turborepo starter
 
-This Turborepo starter is maintained by the Turborepo core team.
+# 🌐 ClevenStudio
 
-## Using this example
+> **Reliable. Scalable. Stress-free. Simple. Intuitive. Never boring.**  
+> Cleven Studios makes maintaining, optimizing, and enhancing your site effortless.
 
-Run the following command:
 
-```sh
-npx create-turbo@latest
+
+## 🚀 Getting Started – Local Setup Guide
+
+Follow these steps to run ClevenStudio locally on your machine.
+
+
+
+### 📦 Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/Urcodingbuddy/ClevenStudio.git
+```
+---
+
+### 🔐 Step 2: Set Up Environment Variables
+
+#### 🖥️ Frontend `.env`
+
+```bash
+cd ClevenStudio/apps/client
+touch .env
 ```
 
-## What's inside?
+Paste the following in `.env`:
 
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+```env
+NEXTAUTH_SECRET="create any secret"
+GOOGLE_CLIENT_ID="Get it from Google Cloud Console"
+GOOGLE_CLIENT_SECRET="Get it from Google Cloud Console"
+GITHUB_CLIENT_ID="Get it from GitHub Apps"
+GITHUB_CLIENT_SECRET="Get it from GitHub Apps"
 ```
 
-### Develop
 
-To develop all apps and packages, run the following command:
+#### 🛢️ Database `.env`
 
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+```bash
+cd ClevenStudio/packages/db
+touch .env
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+Paste the following:
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
+```env
+DATABASE_URL="Your PostgreSQL connection string"
 ```
 
-## Useful Links
+---
 
-Learn more about the power of Turborepo:
+### 🔄 Step 3: Prisma Setup (Database Migration)
 
-- [Tasks](https://turborepo.com/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turborepo.com/docs/core-concepts/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+> 💡 **Note**: If Prisma is not installed, follow this [guide](https://medium.com/@yhimanshu22/prisma-installation-full-guide-a13c54ce0c00)
+
+#### Run the following commands:
+
+```bash
+cd packages/db
+bun prisma migrate dev --name init_schema
+bun prisma generate
+```
+
+---
+
+### 📚 Step 4: Install Dependencies & Run Dev Server
+
+```bash
+bun install
+bun dev
+```
+
+
+## ✅ You're All Set!
+
+The application should now be running locally. Open your browser and check the magic! ✨
+                                                         
+
+ ---
+
+## 🤝 Open Source Contribution Guide
+
+We welcome contributions from everyone! Here's how you can get started:
+
+### 🛠️ Step-by-Step
+
+1. **Fork the Repository**
+   - Click on the `Fork` button in the top right corner of this repo.
+
+2. **Create a New Issue**
+   - Navigate to the [Issues tab](../../issues) and create a new issue describing your feature or bug fix.
+
+3. **Clone Your Fork**
+   ```bash
+   git clone https://github.com/<your-username>/ClevenStudio.git
+   cd ClevenStudio
+   ```
+
+4. **Create a New Branch**
+   ```bash
+   git checkout -b issue-<issue-number>-your-branch-name
+   ```
+
+5. **Make Your Changes**
+   - Code your fix or feature.
+   - Follow the project’s coding standards and structure.
+
+6. **Commit Your Changes**
+   ```bash
+   git add .
+   git commit -m "fix: <brief message> (closes #<issue-number>)"
+   ```
+
+7. **Push to Your Fork**
+   ```bash
+   git push origin issue-<issue-number>-your-branch-name
+   ```
+
+8. **Create a Pull Request**
+   - Go to your fork on GitHub and click on `Compare & Pull Request`.
+
+
+> 💡 **Tips:**
+> - Reference the issue number in your PR.
+> - Keep pull requests focused and small.
+> - Make sure your code passes all checks before requesting a review.
+
+Thank you for helping improve ClevenStudio! 🚀
+
+---
+
+## 📸 Screenshots
+
+**Landing Page Preview**:
+
+![Landing Page](https://github.com/user-attachments/assets/8e338f85-96b3-403e-8abe-b8a769ae354f)
+
+---
+
+Made with ❤️ by ClevenStudio
