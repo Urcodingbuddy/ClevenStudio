@@ -1,7 +1,7 @@
-import React from 'react';
-import { ChevronDown, ChevronUp, Check } from 'lucide-react';
-import { cn } from '../../../apps/client/lib/utils';
-import ComparePackagesDialog from './ComparePackge';
+import React from "react";
+import { Check } from "lucide-react";
+import { cn } from "@repo/lib/utils";
+import ComparePackagesDialog from "./ComparePackge";
 
 export interface Feature {
   name: string;
@@ -21,54 +21,54 @@ export interface ServiceCardProps {
 
 export const packages = [
   {
-    name: 'Basic',
-    price: '$499',
-    period: 'per month',
+    name: "Basic",
+    price: "$499",
+    period: "per month",
     features: [
-      { name: 'Keyword Research', included: true },
-      { name: 'On-Page SEO', included: true },
-      { name: 'Content Optimization', included: true },
-      { name: 'Monthly Reports', included: true },
-      { name: 'Technical SEO Audit', included: false },
-      { name: 'Competitor Analysis', included: false },
-      { name: 'Link Building', included: false },
-      { name: 'Local SEO', included: false }
+      { name: "Keyword Research", included: true },
+      { name: "On-Page SEO", included: true },
+      { name: "Content Optimization", included: true },
+      { name: "Monthly Reports", included: true },
+      { name: "Technical SEO Audit", included: false },
+      { name: "Competitor Analysis", included: false },
+      { name: "Link Building", included: false },
+      { name: "Local SEO", included: false },
     ],
-    buttonText: 'Add to cart'
+    buttonText: "Add to cart",
   },
   {
-    name: 'Standard',
-    price: '',
-    period: '',
+    name: "Standard",
+    price: "",
+    period: "",
     features: [
-      { name: 'Keyword Research', included: true },
-      { name: 'On-Page SEO', included: true },
-      { name: 'Content Optimization', included: true },
-      { name: 'Monthly Reports', included: true },
-      { name: 'Technical SEO Audit', included: true },
-      { name: 'Competitor Analysis', included: true },
-      { name: 'Link Building', included: false },
-      { name: 'Local SEO', included: false }
+      { name: "Keyword Research", included: true },
+      { name: "On-Page SEO", included: true },
+      { name: "Content Optimization", included: true },
+      { name: "Monthly Reports", included: true },
+      { name: "Technical SEO Audit", included: true },
+      { name: "Competitor Analysis", included: true },
+      { name: "Link Building", included: false },
+      { name: "Local SEO", included: false },
     ],
     popularChoice: false,
-    buttonText: 'Add to cart'
+    buttonText: "Add to cart",
   },
   {
-    name: 'Premium',
-    price: '$1,499',
-    period: 'per month',
+    name: "Premium",
+    price: "$1,499",
+    period: "per month",
     features: [
-      { name: 'Keyword Research', included: true },
-      { name: 'On-Page SEO', included: true },
-      { name: 'Content Optimization', included: true },
-      { name: 'Monthly Reports', included: true },
-      { name: 'Technical SEO Audit', included: true },
-      { name: 'Competitor Analysis', included: true },
-      { name: 'Link Building', included: true },
-      { name: 'Local SEO', included: true }
+      { name: "Keyword Research", included: true },
+      { name: "On-Page SEO", included: true },
+      { name: "Content Optimization", included: true },
+      { name: "Monthly Reports", included: true },
+      { name: "Technical SEO Audit", included: true },
+      { name: "Competitor Analysis", included: true },
+      { name: "Link Building", included: true },
+      { name: "Local SEO", included: true },
     ],
-    buttonText: 'Add to cart'
-  }
+    buttonText: "Add to cart",
+  },
 ];
 
 const FeatureItem: React.FC<{ feature: Feature }> = ({ feature }) => (
@@ -78,10 +78,12 @@ const FeatureItem: React.FC<{ feature: Feature }> = ({ feature }) => (
     ) : (
       <div className="h-4 w-4 rounded-full border border-gray-600 mr-3 flex-shrink-0" />
     )}
-    <span className={cn(
-      "text-sm",
-      feature.included ? "text-gray-200" : "text-gray-500"
-    )}>
+    <span
+      className={cn(
+        "text-sm",
+        feature.included ? "text-gray-200" : "text-gray-500"
+      )}
+    >
       {feature.name}
     </span>
   </div>
@@ -94,18 +96,22 @@ export const ServiceCardUi: React.FC<ServiceCardProps> = ({
   price,
   period,
   isPopular = false,
-  className
+  className,
 }) => {
   return (
-    <div className={cn(
-      "w-full max-w-md mx-auto rounded-xl shadow-card transition-shadow duration-300",
-      "hover:shadow-card-hover overflow-hidden text-gray-100 border border-zinc-800",
-      "bg-[#0c0c0c]",
-      className
-    )}>
+    <div
+      className={cn(
+        "w-full max-w-md mx-auto rounded-xl shadow-card transition-shadow duration-300",
+        "hover:shadow-card-hover overflow-hidden text-gray-100 border border-zinc-800",
+        "bg-[#0c0c0c]",
+        className
+      )}
+    >
       {/* Header */}
       <div className="p-6 bg-gradient-to-r from-gray-800 to-gray-900 border-b border-gray-700">
-        <h2 className="text-2xl font-semibold text-center text-gray-100">{title}</h2>
+        <h2 className="text-2xl font-semibold text-center text-gray-100">
+          {title}
+        </h2>
       </div>
 
       <div className="p-6 space-y-6">

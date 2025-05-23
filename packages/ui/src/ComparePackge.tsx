@@ -1,12 +1,12 @@
 import React from 'react';
 import { Check, GalleryHorizontal } from 'lucide-react';
-import { cn } from '../../../apps/client/lib/utils';
+import { cn } from '@repo/lib/utils';
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
-} from "@repo/components/ui/Dialog";
-import { Button } from "@repo/components/ui/button";
+} from "./Dialog";
+import { Button } from "./button";
 import { packages } from './ServiceCard';
 
 interface ComparePackagesDialogProps {
