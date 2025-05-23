@@ -20,6 +20,7 @@ import { Button } from "@repo/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@repo/components/ui/card"
 import { Separator } from "@repo/components/ui/separator"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@repo/components/ui/tabs"
+import { ServiceCardUi } from '../../../../packages/ui/src/ServiceCard'
 
 export default function Marketplace() {
   const [cartItems, setCartItems] = useState([{ id: 1, name: "Website Speed Optimization", price: 199 }])
@@ -43,11 +44,33 @@ export default function Marketplace() {
     setCartItems(cartItems.filter((item) => item.id !== id))
   }
 
+
+  const cardsData = [
+    {
+      id: 1,
+      title: "Bug Fixing",
+      description: "Complete bug-fixing support for startups and websites.",
+      // currentPackage: packages[0], // Basic
+    },
+    {
+      id: 2,
+      title: "Speed Optimization",
+      description: "Make your website load blazing fast with optimization tools.",
+      // currentPackage: packages[1], // Standard
+    },
+    {
+      id: 3,
+      title: "SEO Booster",
+      description: "Boost your site's SEO and improve search engine visibility.",
+      // currentPackage: packages[2], // Premium
+    },
+  ];
+
   return (
-    <div className="flex bg-black text-white"> 
+    <div className="flex bg-black text-white">
       {/* Main Content */}
       <div className="flex-1 overflow-auto">
-        <header className="sticky top-0 z-10 flex h-16 items-center justify-between gap-4 border-b border-zinc-800 bg-black px-4 sm:px-6">
+        <header className="sticky top-0 z-10 flex h-16 items-center justify-between gap-4 border-b border-zinc-800 bg-[#09090b] px-4 sm:px-6">
           <h1 className="text-2xl font-bold">Marketplace</h1>
           <div className="md:hidden">
             <Button variant="outline" size="icon" className="relative">
@@ -76,275 +99,19 @@ export default function Marketplace() {
                 </div>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {/* Website Speed Optimization Card */}
-                  <Card className="overflow-hidden border-zinc-800 bg-zinc-900 transition-all hover:border-zinc-700 hover:shadow-lg">
-                    <CardHeader className="p-4 pb-2">
-                      <div className="flex justify-between items-start">
-                        <div className="flex items-center gap-2">
-                          <div className="rounded-full bg-blue-900 p-2">
-                            <Zap className="h-5 w-5 text-blue-400" />
-                          </div>
-                          <div>
-                            <CardTitle className="text-base">Website Speed Optimization</CardTitle>
-                          </div>
-                        </div>
-                        <Badge className="bg-orange-500 hover:bg-orange-600">Best Seller</Badge>
-                      </div>
-                      <CardDescription className="mt-2 text-zinc-400">
-                        Boost your website speed and Core Web Vitals.
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="p-4 pt-0">
-                      <div className="mt-4 grid grid-cols-3 gap-2">
-                        <div className="rounded-md border border-zinc-800 p-2 text-center">
-                          <div className="text-xs text-zinc-400">Basic</div>
-                          <div className="font-medium">$99</div>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="mt-2 w-full text-xs"
-                            onClick={() => addToCart({ id: 2, name: "Website Speed Optimization (Basic)", price: 99 })}
-                          >
-                            Add
-                          </Button>
-                        </div>
-                        <div className="rounded-md border border-blue-900 bg-zinc-800 p-2 text-center">
-                          <div className="text-xs text-blue-400">Standard</div>
-                          <div className="font-medium">$199</div>
-                          <Button
-                            size="sm"
-                            className="mt-2 w-full text-xs bg-blue-600 hover:bg-blue-700"
-                            onClick={() =>
-                              addToCart({ id: 3, name: "Website Speed Optimization (Standard)", price: 199 })
-                            }
-                          >
-                            Add
-                          </Button>
-                        </div>
-                        <div className="rounded-md border border-zinc-800 p-2 text-center">
-                          <div className="text-xs text-zinc-400">Premium</div>
-                          <div className="font-medium">$299</div>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="mt-2 w-full text-xs"
-                            onClick={() =>
-                              addToCart({ id: 4, name: "Website Speed Optimization (Premium)", price: 299 })
-                            }
-                          >
-                            Add
-                          </Button>
-                        </div>
-                      </div>
-                      <div>
-                        <button
-                          className="flex w-full items-center justify-center gap-1 mt-3 text-sm text-zinc-400"
-                          onClick={() => setExpandedCards({ ...expandedCards, speed: !expandedCards["speed"] })}
-                        >
-                          What's included{" "}
-                          <ChevronDown
-                            className={`h-4 w-4 transition-transform ${expandedCards["speed"] ? "rotate-180" : ""}`}
-                          />
-                        </button>
 
-                        {expandedCards["speed"] && (
-                          <div className="mt-3 pt-3 border-t border-zinc-800">
-                            <ul className="text-sm space-y-2 text-zinc-400">
-                              <li className="flex items-start">
-                                <span className="text-green-500 mr-2">✓</span>
-                                <span>Basic: Site audit, image optimization</span>
-                              </li>
-                              <li className="flex items-start">
-                                <span className="text-blue-500 mr-2">✓</span>
-                                <span>Standard: Everything in Basic + caching setup, code optimization</span>
-                              </li>
-                              <li className="flex items-start">
-                                <span className="text-purple-500 mr-2">✓</span>
-                                <span>Premium: Everything in Standard + CDN setup, monthly monitoring</span>
-                              </li>
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
 
-                  {/* SEO Booster Card */}
-                  <Card className="overflow-hidden border-zinc-800 bg-zinc-900 transition-all hover:border-zinc-700 hover:shadow-lg">
-                    <CardHeader className="p-4 pb-2">
-                      <div className="flex justify-between items-start">
-                        <div className="flex items-center gap-2">
-                          <div className="rounded-full bg-green-900 p-2">
-                            <LineChart className="h-5 w-5 text-green-400" />
-                          </div>
-                          <div>
-                            <CardTitle className="text-base">SEO Booster</CardTitle>
-                          </div>
-                        </div>
-                        <Badge className="bg-green-500 hover:bg-green-600">New</Badge>
-                      </div>
-                      <CardDescription className="mt-2 text-zinc-400">
-                        Improve your search rankings and visibility.
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="p-4 pt-0">
-                      <div className="mt-4 grid grid-cols-3 gap-2">
-                        <div className="rounded-md border border-zinc-800 p-2 text-center">
-                          <div className="text-xs text-zinc-400">Basic</div>
-                          <div className="font-medium">$149</div>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="mt-2 w-full text-xs"
-                            onClick={() => addToCart({ id: 5, name: "SEO Booster (Basic)", price: 149 })}
-                          >
-                            Add
-                          </Button>
-                        </div>
-                        <div className="rounded-md border border-green-900 bg-zinc-800 p-2 text-center">
-                          <div className="text-xs text-green-400">Standard</div>
-                          <div className="font-medium">$249</div>
-                          <Button
-                            size="sm"
-                            className="mt-2 w-full text-xs bg-green-600 hover:bg-green-700"
-                            onClick={() => addToCart({ id: 6, name: "SEO Booster (Standard)", price: 249 })}
-                          >
-                            Add
-                          </Button>
-                        </div>
-                        <div className="rounded-md border border-zinc-800 p-2 text-center">
-                          <div className="text-xs text-zinc-400">Premium</div>
-                          <div className="font-medium">$349</div>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="mt-2 w-full text-xs"
-                            onClick={() => addToCart({ id: 7, name: "SEO Booster (Premium)", price: 349 })}
-                          >
-                            Add
-                          </Button>
-                        </div>
-                      </div>
-                      <div>
-                        <button
-                          className="flex w-full items-center justify-center gap-1 mt-3 text-sm text-zinc-400"
-                          onClick={() => setExpandedCards({ ...expandedCards, seo: !expandedCards["seo"] })}
-                        >
-                          What's included{" "}
-                          <ChevronDown
-                            className={`h-4 w-4 transition-transform ${expandedCards["seo"] ? "rotate-180" : ""}`}
-                          />
-                        </button>
 
-                        {expandedCards["seo"] && (
-                          <div className="mt-3 pt-3 border-t border-zinc-800">
-                            <ul className="text-sm space-y-2 text-zinc-400">
-                              <li className="flex items-start">
-                                <span className="text-green-500 mr-2">✓</span>
-                                <span>Basic: Keyword research, meta tags optimization</span>
-                              </li>
-                              <li className="flex items-start">
-                                <span className="text-blue-500 mr-2">✓</span>
-                                <span>Standard: Everything in Basic + content optimization, backlink analysis</span>
-                              </li>
-                              <li className="flex items-start">
-                                <span className="text-purple-500 mr-2">✓</span>
-                                <span>Premium: Everything in Standard + monthly reports, competitor analysis</span>
-                              </li>
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
+                  {/* <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    {cardsData.map((card) => (
+                      <ServiceCardUi
+                        key={card.id}
+                        description={card.description}
+                      />
+                    ))}
+                  </div> */}
 
-                  {/* Content Updates Card */}
-                  <Card className="overflow-hidden border-zinc-800 bg-zinc-900 transition-all hover:border-zinc-700 hover:shadow-lg">
-                    <CardHeader className="p-4 pb-2">
-                      <div className="flex justify-between items-start">
-                        <div className="flex items-center gap-2">
-                          <div className="rounded-full bg-purple-900 p-2">
-                            <BookOpen className="h-5 w-5 text-purple-400" />
-                          </div>
-                          <div>
-                            <CardTitle className="text-base">Content Updates</CardTitle>
-                          </div>
-                        </div>
-                        <Badge className="bg-blue-500 hover:bg-blue-600">Popular</Badge>
-                      </div>
-                      <CardDescription className="mt-2 text-zinc-400">
-                        Keep your website content fresh and engaging.
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="p-4 pt-0">
-                      <div className="mt-4 grid grid-cols-3 gap-2">
-                        <div className="rounded-md border border-zinc-800 p-2 text-center">
-                          <div className="text-xs text-zinc-400">Basic</div>
-                          <div className="font-medium">$79</div>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="mt-2 w-full text-xs"
-                            onClick={() => addToCart({ id: 8, name: "Content Updates (Basic)", price: 79 })}
-                          >
-                            Add
-                          </Button>
-                        </div>
-                        <div className="rounded-md border border-purple-900 bg-zinc-800 p-2 text-center">
-                          <div className="text-xs text-purple-400">Standard</div>
-                          <div className="font-medium">$179</div>
-                          <Button
-                            size="sm"
-                            className="mt-2 w-full text-xs bg-purple-600 hover:bg-purple-700"
-                            onClick={() => addToCart({ id: 9, name: "Content Updates (Standard)", price: 179 })}
-                          >
-                            Add
-                          </Button>
-                        </div>
-                        <div className="rounded-md border border-zinc-800 p-2 text-center">
-                          <div className="text-xs text-zinc-400">Premium</div>
-                          <div className="font-medium">$279</div>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="mt-2 w-full text-xs"
-                            onClick={() => addToCart({ id: 10, name: "Content Updates (Premium)", price: 279 })}
-                          >
-                            Add
-                          </Button>
-                        </div>
-                      </div>
-                      <div>
-                        <button
-                          className="flex w-full items-center justify-center gap-1 mt-3 text-sm text-zinc-400"
-                          onClick={() => setExpandedCards({ ...expandedCards, content: !expandedCards["content"] })}
-                        >
-                          What's included{" "}
-                          <ChevronDown
-                            className={`h-4 w-4 transition-transform ${expandedCards["content"] ? "rotate-180" : ""}`}
-                          />
-                        </button>
 
-                        {expandedCards["content"] && (
-                          <div className="mt-3 pt-3 border-t border-zinc-800">
-                            <ul className="text-sm space-y-2 text-zinc-400">
-                              <li className="flex items-start">
-                                <span className="text-green-500 mr-2">✓</span>
-                                <span>Basic: 3 content updates per month</span>
-                              </li>
-                              <li className="flex items-start">
-                                <span className="text-blue-500 mr-2">✓</span>
-                                <span>Standard: 10 content updates per month + image optimization</span>
-                              </li>
-                              <li className="flex items-start">
-                                <span className="text-purple-500 mr-2">✓</span>
-                                <span>Premium: Unlimited updates + content strategy consultation</span>
-                              </li>
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
                 </div>
               </div>
 
@@ -567,68 +334,7 @@ export default function Marketplace() {
             <TabsContent value="services" className="mt-6">
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {/* Service cards would go here - similar to the ones in Recommended tab */}
-                <Card className="overflow-hidden border-zinc-800 bg-zinc-900 transition-all hover:border-zinc-700 hover:shadow-lg">
-                  <CardHeader className="p-4 pb-2">
-                    <div className="flex justify-between items-start">
-                      <div className="flex items-center gap-2">
-                        <div className="rounded-full bg-blue-900 p-2">
-                          <Zap className="h-5 w-5 text-blue-400" />
-                        </div>
-                        <div>
-                          <CardTitle className="text-base">Website Speed Optimization</CardTitle>
-                        </div>
-                      </div>
-                      <Badge className="bg-orange-500 hover:bg-orange-600">Best Seller</Badge>
-                    </div>
-                    <CardDescription className="mt-2 text-zinc-400">
-                      Boost your website speed and Core Web Vitals.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="p-4 pt-0">
-                    <div className="mt-4 grid grid-cols-3 gap-2">
-                      <div className="rounded-md border border-zinc-800 p-2 text-center">
-                        <div className="text-xs text-zinc-400">Basic</div>
-                        <div className="font-medium">$99</div>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="mt-2 w-full text-xs"
-                          onClick={() => addToCart({ id: 2, name: "Website Speed Optimization (Basic)", price: 99 })}
-                        >
-                          Add
-                        </Button>
-                      </div>
-                      <div className="rounded-md border border-blue-900 bg-zinc-800 p-2 text-center">
-                        <div className="text-xs text-blue-400">Standard</div>
-                        <div className="font-medium">$199</div>
-                        <Button
-                          size="sm"
-                          className="mt-2 w-full text-xs bg-blue-600 hover:bg-blue-700"
-                          onClick={() =>
-                            addToCart({ id: 3, name: "Website Speed Optimization (Standard)", price: 199 })
-                          }
-                        >
-                          Add
-                        </Button>
-                      </div>
-                      <div className="rounded-md border border-zinc-800 p-2 text-center">
-                        <div className="text-xs text-zinc-400">Premium</div>
-                        <div className="font-medium">$299</div>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="mt-2 w-full text-xs"
-                          onClick={() => addToCart({ id: 4, name: "Website Speed Optimization (Premium)", price: 299 })}
-                        >
-                          Add
-                        </Button>
-                      </div>
-                    </div>
-                    <button className="flex w-full items-center justify-center gap-1 mt-3 text-sm text-zinc-400">
-                      What's included <ChevronDown className="h-4 w-4" />
-                    </button>
-                  </CardContent>
-                </Card>
+                <ServiceCardUi />
                 {/* More service cards would go here */}
               </div>
             </TabsContent>
@@ -756,7 +462,7 @@ export default function Marketplace() {
           <div className="mt-8">
             <h3 className="text-sm font-medium mb-3">Suggested for you</h3>
             <div className="space-y-3">
-              <Card className="overflow-hidden border-zinc-800 bg-zinc-900">
+              <Card className="overflow-hidden border-zinc-800 bg-[#0c0c0c]">
                 <div className="flex p-3">
                   <div className="rounded-full bg-amber-900 p-2 mr-3">
                     <Star className="h-4 w-4 text-amber-400" />
@@ -779,7 +485,7 @@ export default function Marketplace() {
                 </div>
               </Card>
 
-              <Card className="overflow-hidden border-zinc-800 bg-zinc-900">
+              <Card className="overflow-hidden border-zinc-800 bg-[#0c0c0c]">
                 <div className="flex p-3">
                   <div className="rounded-full bg-purple-900 p-2 mr-3">
                     <Gift className="h-4 w-4 text-purple-400" />

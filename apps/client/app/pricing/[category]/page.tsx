@@ -2,7 +2,7 @@
 import { usePlan } from "@repo/lib/hooks/usePlan";
 import { Check } from "lucide-react";
 import GettingStarted from "@repo/components/ui/GettingStarted";
-import { useParams } from "next/navigation"; 
+import { useParams } from "next/navigation";
 import PricingSkeleton from "@repo/components/skeletons/PricingSkeleton";
 
 
@@ -10,7 +10,7 @@ const categoryDisplayNames: Record<string, string> = {
   "bug-fixing": "Bug Fixing",
   "web-maintenance": "Web Maintenance",
   "content-update": "Content Update",
-  mvp: "Minimum Viable Product",
+  "mvp": "Minimum Viable Product",
   "speed-optimization": "Speed Optimization",
 };
 
@@ -29,7 +29,7 @@ export default function Pricing() {
 
   return (
     <main className="min-h-screen relative text-white bg-no-repeat bg-center bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.15)_0%,_rgba(255,255,255,0.08)_10%,_rgba(0,0,0,0)_60%)] bg-[length:60%_100%]">
-      
+
       <div className="container mx-auto pt-28 md:pt-24 lg:pt-32 pb-16 px-4">
         <div className="text-center mb-12 md:mb-16 lg:mb-20">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-none text-transparent bg-gradient-to-b from-gray-300 to-gray-600 bg-clip-text tracking-tighter">
@@ -43,9 +43,9 @@ export default function Pricing() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {plans.map((plan, index) => (
             <div
-            key={index}
-            className={`relative flex flex-col justify-between rounded-2xl ${plan?.featured ? "bg-gradient-to-b from-white/15 to-black border-white/50" : "bg-white/5 border-white/10"} backdrop-blur-xl border p-6 md:p-8 overflow-hidden group hover:border-white/50 transition-all duration-300 hover:scale-[1.02]`}
-          >
+              key={index}
+              className={`relative flex flex-col justify-between rounded-2xl ${plan?.featured ? "bg-gradient-to-b from-white/15 to-black border-white/50" : "bg-white/5 border-white/10"} backdrop-blur-xl border p-6 md:p-8 overflow-hidden group hover:border-white/50 transition-all duration-300 hover:scale-[1.02]`}
+            >
               <div className="relative">
                 <h3 className="text-sm text-gray-400 mb-2">{plan.name}</h3>
                 <div className="flex items-baseline gap-2 mb-1">
@@ -68,10 +68,10 @@ export default function Pricing() {
                 </ul>
 
               </div>
-                <GettingStarted
-                  category={category}
-                  plan={plan.name?.toLowerCase() || "bug-fixing"}
-                />
+              <GettingStarted
+                category={category}
+                plan={plan.name?.toLowerCase() || "bug-fixing"}
+              />
             </div>
           ))}
         </div>
