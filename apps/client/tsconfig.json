@@ -7,6 +7,7 @@
       "@repo/components/ui/*":["./components/ui/*"],
       "@repo/components/skeletons/*":["./components/skeletons/*"],
       "@repo/components/*":["./components/*"],
+      "@repo/packages/ui/*":["../../packages/ui/src/*"],
       "@repo/lib/hooks/*": ["./lib/hooks/*"],
       "@repo/lib/*": ["./lib/*"]
     },
