@@ -15,12 +15,12 @@ import {
   Trash,
   Zap,
 } from "lucide-react"
-import { Badge } from "@repo/components/ui/badge"
-import { Button } from "@repo/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@repo/components/ui/card"
-import { Separator } from "@repo/components/ui/separator"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@repo/components/ui/tabs"
-import { ServiceCardUi } from '../../../../packages/ui/src/ServiceCard'
+import { Badge } from "@repo/packages/ui/badge"
+import { Button } from "@repo/packages/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@repo/packages/ui/card"
+import { Separator } from "@repo/packages/ui/separator"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@repo/packages/ui/tabs"
+import { ServiceCardUi } from '@repo/packages/ui/ServiceCard'
 
 export default function Marketplace() {
   const [cartItems, setCartItems] = useState([{ id: 1, name: "Website Speed Optimization", price: 199 }])
@@ -334,7 +334,7 @@ export default function Marketplace() {
             <TabsContent value="services" className="mt-6">
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {/* Service cards would go here - similar to the ones in Recommended tab */}
-                <ServiceCardUi />
+                <ServiceCardUi title={""} description={""} features={[]} price={""} period={""} buttonText={""} />
                 {/* More service cards would go here */}
               </div>
             </TabsContent>
