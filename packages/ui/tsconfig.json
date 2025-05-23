@@ -1,7 +1,12 @@
 {
   "extends": "@repo/typescript-config/react-library.json",
   "compilerOptions": {
-    "outDir": "dist"
+    "outDir": "dist",
+    "paths" : {
+      "@repo/components/ui/*":["./../../apps/client/components/ui/*"],
+      "@repo/lib/utils/*":["../../../apps/client/lib/utils/*"]
+
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
