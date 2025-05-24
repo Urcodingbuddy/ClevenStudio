@@ -13,7 +13,7 @@ model User {
   email          String        @unique
   password       String?
   phone          String?
-  imageUrl       String?
+  imageURL       String?
   createdAt      DateTime      @default(now())
   lastPassUpdate DateTime?
   projects       Project[]     @relation("UserProjects")
