@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { useIsMobile } from "@repo/lib/hooks/use-mobile";
-import DesktopNavigation from "@repo/packages/ui/DesktopNav";
-import MobileNavigation from "@repo/packages/ui/MobileNav";
+import DesktopNavigation from "@repo/components/common/DesktopNav";
+import MobileNavigation from "@repo/components/common/MobileNav";
 
 export function Navigation() {
   const pathname = usePathname();
@@ -17,5 +17,3 @@ export function Navigation() {
 
   return <DesktopNavigation pathname={pathname} session={session} />;
 }
-
-

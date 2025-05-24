@@ -1,15 +1,15 @@
-import { Card, CardContent } from "@repo/packages/ui/card"
-import { Github, Calendar, User, Clock } from "lucide-react"
-import Link from "next/link"
+import { Card, CardContent } from "@repo/components/common/card";
+import { Github, Calendar, User, Clock } from "lucide-react";
+import Link from "next/link";
 
 interface ProjectProps {
-  name: string
-  id: string
-  status: string
-  githubLink: string
-  uploadedBy: string
-  uploadDate: string
-  deadline: string
+  name: string;
+  id: string;
+  status: string;
+  githubLink: string;
+  uploadedBy: string;
+  uploadDate: string;
+  deadline: string;
 }
 
 export function ProjectHeader({ project }: { project: ProjectProps }) {
@@ -51,5 +51,5 @@ export function ProjectHeader({ project }: { project: ProjectProps }) {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
