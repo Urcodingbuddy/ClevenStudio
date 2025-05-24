@@ -11,7 +11,6 @@ import { TextHoverEffect } from "@repo/components/ui/text-hover-effect";
 export default function Home() {
   return (
     <>
-    {/* <InitialLoader /> */}
     <AppBar/>
     <ContainerScroll>
     <img src="./dashboard-ex.jpg" alt="" />

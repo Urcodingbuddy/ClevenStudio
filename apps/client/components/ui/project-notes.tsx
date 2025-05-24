@@ -1,42 +1,48 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@repo/packages/ui/button"
-import { Textarea } from "@repo/packages/ui/textarea"
-import { User, Clock, Send } from "lucide-react"
+import { useState } from "react";
+import { Button } from "@repo/components/common/button";
+import { Textarea } from "@repo/components/common/textarea";
+import { User, Clock, Send } from "lucide-react";
 
 const initialNotes = [
   {
     id: 1,
     author: "Sarah Johnson",
     date: "Nov 10, 2023",
-    content: "Fixed the checkout page bug. The issue was related to the payment gateway integration.",
+    content:
+      "Fixed the checkout page bug. The issue was related to the payment gateway integration.",
   },
   {
     id: 2,
     author: "Mike Chen",
     date: "Nov 9, 2023",
-    content: "Updated product catalog with new items. Please review the images and descriptions.",
+    content:
+      "Updated product catalog with new items. Please review the images and descriptions.",
   },
-]
+];
 
 export function ProjectNotes() {
-  const [notes, setNotes] = useState(initialNotes)
-  const [newNote, setNewNote] = useState("")
+  const [notes, setNotes] = useState(initialNotes);
+  const [newNote, setNewNote] = useState("");
 
   const handleAddNote = () => {
-    if (!newNote.trim()) return
+    if (!newNote.trim()) return;
 
     const note = {
       id: Date.now(),
       author: "You",
-      date: new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }),
+      date: new Date().toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      }),
       content: newNote,
-    }
+    };
 
-    setNotes([note, ...notes])
-    setNewNote("")
-  }
+    setNotes([note, ...notes]);
+    setNewNote("");
+  };
 
   return (
     <div className="space-y-4">
@@ -49,7 +55,10 @@ export function ProjectNotes() {
         />
       </div>
       <div className="flex justify-end">
-        <Button onClick={handleAddNote} className="flex items-center gap-2 bg-[#161616] text-white hover:bg-[#1a1a1a] cursor-pointer ">
+        <Button
+          onClick={handleAddNote}
+          className="flex items-center gap-2 bg-[#161616] text-white hover:bg-[#1a1a1a] cursor-pointer "
+        >
           <Send className="w-4 h-4" />
           <span>Add Note</span>
         </Button>
@@ -57,7 +66,10 @@ export function ProjectNotes() {
 
       <div className="space-y-2 mt-4">
         {notes.map((note) => (
-          <div key={note.id} className="p-3 rounded-md bg-[#0c0c0c] border-l-2 border-gray-500">
+          <div
+            key={note.id}
+            className="p-3 rounded-md bg-[#0c0c0c] border-l-2 border-gray-500"
+          >
             <div className="flex items-center justify-between mb-1">
               <div className="flex items-center gap-2">
                 <div className="flex items-center justify-center w-5 h-5 rounded-full bg-[#0c0c0c] text-blue-400">
@@ -75,5 +87,5 @@ export function ProjectNotes() {
         ))}
       </div>
     </div>
-  )
+  );
 }

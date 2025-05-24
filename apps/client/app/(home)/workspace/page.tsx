@@ -6,7 +6,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@repo/packages/ui/tabs";
+} from "@repo/components/common/tabs";
 import { ProjectNotes } from "@repo/components/ui/project-notes";
 import { ProjectHeader } from "@repo/components/ui/project-header";
 import {
@@ -25,8 +25,8 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from "@repo/packages/ui/card";
-import { Progress } from "@repo/packages/ui/progress";
+} from "@repo/components/common/card";
+import { Progress } from "@repo/components/common/progress";
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("bug-fixing");
