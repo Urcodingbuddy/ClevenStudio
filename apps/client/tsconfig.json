@@ -3,7 +3,6 @@
   "compilerOptions": {
     "paths": {
       "@repo/db": ["../../packages/db/index.ts"],
-      "@repo/landing/*": ["./landing/*"],
       "@repo/components/ui/*":["./components/ui/*"],
       "@repo/components/*":["./components/*"],
       "@repo/components/common/*":["./components/common/*"],

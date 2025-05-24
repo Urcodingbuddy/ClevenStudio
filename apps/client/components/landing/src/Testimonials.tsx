@@ -1,6 +1,6 @@
 "use client";
 
-import { InfiniteMovingCards } from "@repo/landing/infinite-moving-cards";
+import { InfiniteMovingCards } from "@repo/components/landing/src/infinite-moving-cards";
 
 export function Testimonials() {
     return (

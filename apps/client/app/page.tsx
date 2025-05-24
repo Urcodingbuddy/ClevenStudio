@@ -1,27 +1,22 @@
-import { AppBar } from "@repo/landing/AppBar";
-import { HeroMessage } from "@repo/landing/HeroMessage";
-import { ContainerScroll } from "@repo/components/ui/container-scroll-animation";
-import { EssentialSection } from "@repo/landing/EssentialSection";
-import { FAQ } from "@repo/landing/FAQ";
-import { Footer } from "@repo/landing/Footer";
-import { Services } from "@repo/landing/Services";
-import { Testimonials } from "@repo/landing/Testimonials";
-import { TextHoverEffect } from "@repo/components/ui/text-hover-effect";
+import LandingPage from "@repo/components/landing/landing-page";
+import { authOptions } from "./api/auth/authOptions";
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
 
-export default function Home() {
+const getUserDetails = async () => {
+  const session = await getServerSession(authOptions);
+  return session;
+};
+
+export default async function Home() {
+  const session = await getUserDetails();
+  if (session?.user) {
+    redirect("/workspace");
+  }
+
   return (
-    <>
-    <AppBar/>
-    <ContainerScroll>
-    <img src="./dashboard-ex.jpg" alt="" />
-    </ContainerScroll>
-    <HeroMessage/>
-    <EssentialSection/>
-    <Services/>
-    <Testimonials/>
-    <FAQ/>
-    <TextHoverEffect text="CLEVEN" />
-    <Footer/>
-    </>
+    <main>
+      <LandingPage />
+    </main>
   );
 }
