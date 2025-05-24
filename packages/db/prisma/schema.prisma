@@ -8,18 +8,25 @@ datasource db {
 }
 
 model User {
-  id             String        @id @default(cuid())
-  name           String
-  email          String        @unique
-  password       String?
-  phone          String?
-  imageURL       String?
-  createdAt      DateTime      @default(now())
-  lastPassUpdate DateTime?
-  projects       Project[]     @relation("UserProjects")
-  userServices   UserService[] @relation("UserServices")
-  tasks          Task[]        @relation("UserTasks")
-  Messages       Message[]
+  id                  String        @id @default(cuid())
+  name                String
+  email               String        @unique
+  password            String?
+  phone               String?
+  imageURL            String?
+  createdAt           DateTime      @default(now())
+  lastPasswordUpdated DateTime?
+  auth_type           AuthType
+  projects            Project[]     @relation("UserProjects")
+  userServices        UserService[] @relation("UserServices")
+  tasks               Task[]        @relation("UserTasks")
+  Messages            Message[]
+}
+
+enum AuthType {
+  Google
+  Github
+  credentials
 }
 
 model Plan {
