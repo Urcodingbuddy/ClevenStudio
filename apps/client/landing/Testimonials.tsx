@@ -1,6 +1,6 @@
 "use client";
 
-import { InfiniteMovingCards } from "@repo/packages/ui/infinite-moving-cards";
+import { InfiniteMovingCards } from "@repo/landing/infinite-moving-cards";
 
 export function Testimonials() {
     return (
