@@ -5,7 +5,7 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "../../../../packages/ui/src/avatar";
+} from "@repo/ui/avatar";
 import Link from "next/link";
 
 export default function ProfileAvatar({ session }: { session: any }) {
