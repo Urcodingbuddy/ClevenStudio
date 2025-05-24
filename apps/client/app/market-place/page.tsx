@@ -15,12 +15,12 @@ import {
   Trash,
   Zap,
 } from "lucide-react"
-import { Badge } from "@repo/packages/ui/badge"
-import { Button } from "@repo/packages/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@repo/packages/ui/card"
-import { Separator } from "@repo/packages/ui/separator"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@repo/packages/ui/tabs"
-import { ServiceCardUi } from '@repo/packages/ui/ServiceCard'
+import { Badge } from "@repo/components/common/badge"
+import { Button } from "@repo/components/common/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@repo/components/common/card"
+import { Separator } from "@repo/components/common/separator"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@repo/components/common/tabs"
+import { ServiceCardUi } from '@repo/components/common/ServiceCard'
 
 export default function Marketplace() {
   const [cartItems, setCartItems] = useState([{ id: 1, name: "Website Speed Optimization", price: 199 }])
