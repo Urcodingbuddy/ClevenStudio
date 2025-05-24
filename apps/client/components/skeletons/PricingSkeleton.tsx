@@ -1,4 +1,4 @@
-import { Skeleton } from "@repo/components/ui/skeleton";
+import { Skeleton } from "@repo/ui/skeleton";
 
 export default function PricingSkeleton() {
   return (
