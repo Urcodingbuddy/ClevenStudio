@@ -6,7 +6,6 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { InteractiveHoverButton } from "@repo/landing/hoverBtn";
-
 gsap.registerPlugin(ScrollTrigger);
 
 export const AppBar = () => {
