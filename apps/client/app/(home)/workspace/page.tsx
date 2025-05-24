@@ -27,6 +27,7 @@ import {
   CardTitle,
 } from "@repo/components/common/card";
 import { Progress } from "@repo/components/common/progress";
+import CompactTaskWidget from "@repo/components/project-task/compact-task-widget";
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("bug-fixing");
@@ -403,7 +404,7 @@ export default function Dashboard() {
         {/* Right Column */}
         <div className="space-y-6 flex flex-col justify-between">
           {/* Project Stats */}
-          <Card className="bg-[#09090b] shadow-lg">
+          {/* <Card className="bg-[#09090b] shadow-lg">
             <CardHeader className="pb-2">
               <CardTitle className="text-lg font-medium ">
                 Project Stats
@@ -489,10 +490,10 @@ export default function Dashboard() {
                 />
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
 
           {/* Project Notes */}
-          <Card className="bg-[#09090b]  shadow-lg">
+          {/* <Card className="bg-[#09090b]  shadow-lg">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">
                 Project Notes
@@ -501,7 +502,10 @@ export default function Dashboard() {
             <CardContent>
               <ProjectNotes />
             </CardContent>
-          </Card>
+          </Card> */}
+
+           <CompactTaskWidget />
+
         </div>
       </div>
     </div>
