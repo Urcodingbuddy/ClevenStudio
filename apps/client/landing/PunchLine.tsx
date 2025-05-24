@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { InteractiveHoverButton } from "@repo/landing/hoverBtn";
+import { InteractiveHoverButton } from "./hoverBtn";
 
 // Register GSAP plugins
 gsap.registerPlugin(useGSAP, ScrollTrigger);
