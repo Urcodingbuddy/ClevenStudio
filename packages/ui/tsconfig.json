@@ -5,8 +5,6 @@
     "paths" : {
       "@repo/components/ui/*":["./../../apps/client/components/ui/*"],
       "@repo/lib/*":["../../apps/client/lib/*"],
-      
-
     }
   },
   "include": ["src"],
