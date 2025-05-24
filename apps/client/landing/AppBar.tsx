@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { InteractiveHoverButton } from "./hoverBtn";
+import { InteractiveHoverButton } from "@repo/components/ui/hoverBtn";
 gsap.registerPlugin(ScrollTrigger);
 
 export const AppBar = () => {
