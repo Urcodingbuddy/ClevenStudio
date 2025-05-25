@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader } from "@repo/components/common/card"
 import { Badge } from "@repo/components/common/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@repo/components/common/select"
 import { Calendar } from "@repo/components/common/calender"
-import { Popover, PopoverContent, PopoverTrigger } from "@repo/components/common/popOver"
+import { Popover, PopoverContent, PopoverTrigger } from "@repo/components/common/popover"
 import {
   Plus,
   X,
