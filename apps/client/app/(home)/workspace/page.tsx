@@ -179,7 +179,7 @@ export default function Dashboard() {
           <span
             className={`px-2 py-1 border flex justify-evenly gap-1 w-16 items-center text-sm font-medium rounded-full ${activeService?.bgColor} ${activeService?.textColor}`}
           >
-            Live <Zap className="w-3" />
+            Live <Zap className="w-3 text-yellow-400 fill-amber-400" />
           </span>
         </div>
         <button className="p-2 rounded-full bg-[#09090b] text-white hover:-rotate-360 transition transform-3d border duration-1000">
@@ -194,7 +194,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* Service Details */}
         <div className="lg:col-span-2">
-          <Card className="bg-[#09090b] backdrop-blur-3xl border shadow-lg overflow-hidden">
+          <Card className="bg-gray-900/50 border-gray-700 backdrop-blur-3xl border shadow-lg overflow-hidden">
             <CardHeader className="pb-2 border-b ">
               <CardTitle className="text-lg">Service Details</CardTitle>
             </CardHeader>
