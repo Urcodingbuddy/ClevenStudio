@@ -14,8 +14,8 @@ interface ProjectProps {
 
 export function ProjectHeader({ project }: { project: ProjectProps }) {
   return (
-    <Card className="bg-[#09090b] backdrop-blur-3xl relative  shadow-lg">
-      <CardContent className="p-4">
+    <Card className="bg-gray-900/50 border-gray-700 backdrop-blur-3xl relative  shadow-lg">
+      <CardContent className="px-5">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <h2 className="text-xl font-bold text-white">{project.name}</h2>
