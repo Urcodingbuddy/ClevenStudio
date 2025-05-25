@@ -5,7 +5,7 @@ import {
   Dialog,
   DialogContent,
   DialogTrigger,
-} from "./Dialog";
+} from "./dialog";
 import { Button } from "./button";
 import { packages } from './ServiceCard';
 
