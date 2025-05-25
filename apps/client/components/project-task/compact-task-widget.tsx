@@ -188,7 +188,7 @@ export default function CompactTaskWidget() {
     }
 
     return (
-        <div className="w-80 h-fit">
+        <section className="w-full h-fit">
             {/* Task Stats Card */}
             <Card className="bg-gray-900/50 border-gray-700 backdrop-blur-sm mb-4">
                 <CardHeader className="pb-3">
@@ -470,6 +470,6 @@ export default function CompactTaskWidget() {
                     </div>
                 </div>
             )}
-        </div>
+        </section>
     )
 }
