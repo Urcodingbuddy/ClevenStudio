@@ -1,5 +1,7 @@
 "use client";
 
+import * as React from "react";
+import { Check, ChevronsUpDown } from "lucide-react";
 import { useState } from "react";
 import {
   Tabs,
@@ -7,7 +9,6 @@ import {
   TabsList,
   TabsTrigger,
 } from "@repo/components/common/tabs";
-import { ProjectNotes } from "@repo/components/ui/project-notes";
 import { ProjectHeader } from "@repo/components/ui/project-header";
 import {
   Bug,
@@ -28,9 +29,49 @@ import {
 } from "@repo/components/common/card";
 import { Progress } from "@repo/components/common/progress";
 import CompactTaskWidget from "@repo/components/project-task/compact-task-widget";
+import { cn } from "@repo/lib/utils";
+import { Button } from "@repo/components/common/button";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@repo/components/common/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@repo/components/common/popover";
+
+const frameworks = [
+  {
+    value: "next.js",
+    label: "Next.js",
+  },
+  {
+    value: "sveltekit",
+    label: "SvelteKit",
+  },
+  {
+    value: "nuxt.js",
+    label: "Nuxt.js",
+  },
+  {
+    value: "remix",
+    label: "Remix",
+  },
+  {
+    value: "astro",
+    label: "Astro",
+  },
+];
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("bug-fixing");
+  const [open, setOpen] = React.useState(false);
+  const [value, setValue] = React.useState("");
 
   const projectDetails = {
     name: "Cleven E-commerce Platform",
@@ -195,31 +236,68 @@ export default function Dashboard() {
         {/* Service Details */}
         <div className="lg:col-span-2">
           <Card className="bg-gray-900/50 border-gray-700 backdrop-blur-3xl border shadow-lg overflow-hidden">
-            <CardHeader className="pb-2 border-b ">
-              <CardTitle className="text-lg">Service Details</CardTitle>
+            <CardHeader className="pb-2 border-b">
+              <CardTitle className="text-lg w-50">Service Details</CardTitle>
             </CardHeader>
+
             <CardContent className="p-0">
+              <section className="px-5">
+                <Popover open={open} onOpenChange={setOpen}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      role="combobox"
+                      aria-expanded={open}
+                      className="w-[200px] justify-between"
+                    >
+                      {value
+                        ? frameworks.find(
+                            (framework) => framework.value === value
+                          )?.label
+                        : "Select framework..."}
+                      <ChevronsUpDown className="opacity-50" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-[200px] p-0">
+                    <Command>
+                      <CommandInput placeholder="Search framework..." />
+                      <CommandList>
+                        <CommandEmpty>No framework found.</CommandEmpty>
+                        <CommandGroup>
+                          {frameworks.map((framework) => (
+                            <CommandItem
+                              key={framework.value}
+                              value={framework.value}
+                              onSelect={(currentValue) => {
+                                setValue(
+                                  currentValue === value ? "" : currentValue
+                                );
+                                setOpen(false);
+                              }}
+                            >
+                              {framework.label}
+                              <Check
+                                className={cn(
+                                  "ml-auto",
+                                  value === framework.value
+                                    ? "opacity-100"
+                                    : "opacity-0"
+                                )}
+                              />
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </CommandList>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
+              </section>
               <Tabs
                 defaultValue="bug-fixing"
                 value={activeTab}
                 onValueChange={setActiveTab}
                 className="w-full"
               >
-                <div className="px-4 py-2 border-b">
-                  <TabsList className="h-auto p-1 bg-[#09090b] rounded-md flex flex-wrap gap-1">
-                    {services.map((service) => (
-                      <TabsTrigger
-                        key={service.id}
-                        value={service.id}
-                        className={`flex items-center gap-2 py-2 px-3 data-[state=active]:${service.bgColor} data-[state=active]:${service.textColor}`}
-                      >
-                        <service.icon className="w-4 h-4" />
-                        <span className="text-xs">{service.name}</span>
-                      </TabsTrigger>
-                    ))}
-                  </TabsList>
-                </div>
-
                 {services.map((service) => (
                   <TabsContent
                     key={service.id}
@@ -345,7 +423,6 @@ export default function Dashboard() {
                         <div
                           className={`px-2 py-1 text-sm text-muted-foreground font-medium rounded-full ${service.bgColor} ${service.textColor}`}
                         >
-                          
                           <span className="text-white">
                             {service.percentage}%
                           </span>{" "}
@@ -504,8 +581,7 @@ export default function Dashboard() {
             </CardContent>
           </Card> */}
 
-           <CompactTaskWidget />
-
+          <CompactTaskWidget />
         </div>
       </div>
     </div>
