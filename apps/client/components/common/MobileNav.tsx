@@ -78,7 +78,10 @@ export default function MobileNavigation({
                       ref={(el) => {
                         iconRefs.current[index] = el;
                       }}
-                      className="flex items-center justify-center w-6 h-6 mb-1"
+                      className={cn("flex items-center justify-center hover:bg-muted w-10 h-10 rounded-full mb-1",
+                        isActive ? "bg-accent"  : "bg-transperent"
+                      )
+                      }
                     >
                       <link.icon
                         className={cn(
