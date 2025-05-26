@@ -5,7 +5,7 @@
       "@repo/db": ["../../packages/db/index.ts"],
       "@repo/components/ui/*":["./components/ui/*"],
       "@repo/components/*":["./components/*"],
-      "@repo/components/common/*":["./components/common/*"],
+      "@/components/common/*":["./components/common/*"],
       "@repo/components/skeletons/*":["./components/skeletons/*"],
       "@repo/packages/ui/*":["../../packages/ui/src/*"],
       "@repo/lib/hooks/*": ["./lib/hooks/*"],
