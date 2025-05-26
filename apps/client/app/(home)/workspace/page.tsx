@@ -8,7 +8,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@repo/components/common/tabs";
+} from "@/components/common/tabs";
 import { ProjectHeader } from "@repo/components/ui/project-header";
 import {
   Bug,
@@ -26,11 +26,11 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from "@repo/components/common/card";
-import { Progress } from "@repo/components/common/progress";
+} from "@/components/common/card";
+import { Progress } from "@/components/common/progress";
 import CompactTaskWidget from "@repo/components/project-task/compact-task-widget";
 import { cn } from "@repo/lib/utils";
-import { Button } from "@repo/components/common/button";
+import { Button } from "@/components/common/button";
 import {
   Command,
   CommandEmpty,
@@ -38,12 +38,12 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@repo/components/common/command";
+} from "@/components/common/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@repo/components/common/popover";
+} from "@/components/common/popover";
 
 const frameworks = [
   {
