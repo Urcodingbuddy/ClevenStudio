@@ -1,7 +1,7 @@
 import React from "react";
 import { Check } from "lucide-react";
 import { cn } from "@repo/lib/utils";
-import ComparePackagesDialog from "./ComparePackge";
+// import ComparePackagesDialog from "./ComparePackge";
 
 export interface Feature {
   name: string;
@@ -136,7 +136,7 @@ export const ServiceCardUi: React.FC<ServiceCardProps> = ({
           ))}
         </div>
 
-        <ComparePackagesDialog buttonStyle="primary" />
+        {/* <ComparePackagesDialog buttonStyle="primary" /> */}
       </div>
     </div>
   );

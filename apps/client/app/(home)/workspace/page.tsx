@@ -29,21 +29,21 @@ import {
 } from "@/components/common/card";
 import { Progress } from "@/components/common/progress";
 import CompactTaskWidget from "@repo/components/project-task/compact-task-widget";
-import { cn } from "@repo/lib/utils";
-import { Button } from "@/components/common/button";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/common/command";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/common/popover";
+// import { cn } from "@repo/lib/utils";
+// import { Button } from "@/components/common/button";
+// import {
+//   Command,
+//   CommandEmpty,
+//   CommandGroup,
+//   CommandInput,
+//   CommandItem,
+//   CommandList,
+// } from "@/components/common/command";
+// import {
+//   Popover,
+//   PopoverContent,
+//   PopoverTrigger,
+// } from "@/components/common/popover";
 
 const frameworks = [
   {
@@ -242,7 +242,7 @@ export default function Dashboard() {
 
             <CardContent className="p-0">
               <section className="px-5">
-                <Popover open={open} onOpenChange={setOpen}>
+                {/* <Popover open={open} onOpenChange={setOpen}>
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
@@ -290,7 +290,7 @@ export default function Dashboard() {
                       </CommandList>
                     </Command>
                   </PopoverContent>
-                </Popover>
+                </Popover> */}
               </section>
               <Tabs
                 defaultValue="bug-fixing"
