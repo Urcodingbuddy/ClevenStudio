@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader } from "@/components/common/card"
 import { Badge } from "@/components/common/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/common/select"
 import { Calendar } from "@/components/common/calender"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/common/popover"
+// import { Popover, PopoverContent, PopoverTrigger } from "@/components/common/popover"
 import {
   Plus,
   X,
@@ -466,7 +466,7 @@ export default function ProfessionalTaskManager() {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">Due Date</label>
-                    <Popover>
+                    {/* <Popover>
                       <PopoverTrigger asChild>
                         <Button
                           variant="outline"
@@ -485,7 +485,7 @@ export default function ProfessionalTaskManager() {
                           className="bg-gray-800"
                         />
                       </PopoverContent>
-                    </Popover>
+                    </Popover> */}
                   </div>
 
                   <div>
