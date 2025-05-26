@@ -1,5 +1,5 @@
 import type React from "react";
-import { Progress } from "@repo/components/common/progress";
+import { Progress } from "@/components/common/progress";
 import { CheckCircle2, Circle } from "lucide-react";
 
 interface ServiceStep {

@@ -4,7 +4,7 @@ import * as React from "react"
 import { Check, ChevronsUpDown } from "lucide-react"
 
 import { cn } from "@repo/lib/utils"
-import { Button } from "@repo/components/common/button"
+import { Button } from "@/components/common/button"
 import {
   Command,
   CommandEmpty,
@@ -12,12 +12,12 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@repo/components/common/command"
+} from "@/components/common/command"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@repo/components/common/popover"
+} from "@/components/common/popover"
 
 const frameworks = [
   {

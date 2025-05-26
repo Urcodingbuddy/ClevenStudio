@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Lock, Search, Settings, Sparkles } from "lucide-react";
-import { GlowingEffect } from "@repo/components/common/glowing-effect";
+import { GlowingEffect } from "@/components/common/glowing-effect";
 import type React from "react";
 
 export function GlowCards() {
