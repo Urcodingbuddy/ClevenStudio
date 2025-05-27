@@ -7,31 +7,38 @@ import {
   AvatarImage,
 } from "@/components/common/avatar";
 import Link from "next/link";
+import { cn } from "@repo/lib/utils";
 
-export default function ProfileAvatar({ session }: { session: any }) {
-  if (!session) {
-    return (
-      <Link href={"/profile"}>
-        <Avatar className="h-8 w-8 border border-zinc-800">
-          <AvatarFallback className="bg-zinc-900 text-zinc-400">
-            <User className="h-4 w-4" />
-          </AvatarFallback>
-        </Avatar>
-      </Link>
-    );
-  }
+export default function ProfileAvatar({
+  session,
+  pathname,
+  isActive,
+}: {
+  session: any;
+  pathname?: string;
+  isActive?: boolean;
+}) {
+  const active =
+    isActive || pathname === "/profile" || pathname?.startsWith("/profile");
 
   return (
-    <Link href={"/profile"}>
-      <Avatar className="h-8 w-8 border border-accent hover:border-accent-foreground">
-        {session.user?.image ? (
+    <Link href="/profile">
+      <Avatar
+        className={cn(
+          "h-8 w-8 border transition-colors",
+          active
+            ? "border-accent bg-accent/20 text-white"
+            : "border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-accent-foreground"
+        )}
+      >
+        {session?.user?.image ? (
           <AvatarImage
-            src={session?.user?.image || "/placeholder.svg"}
+            src={session.user.image}
             alt={session.user.name || "User"}
           />
         ) : (
-          <AvatarFallback className="bg-zinc-900 text-zinc-400 hover:text-accent-foreground">
-            {session.user?.name?.[0] || <User className="h-4 w-4" />}
+          <AvatarFallback>
+            {session?.user?.name?.[0] || <User className="h-4 w-4" />}
           </AvatarFallback>
         )}
       </Avatar>
