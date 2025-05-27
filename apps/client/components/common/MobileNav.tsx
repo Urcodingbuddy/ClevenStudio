@@ -14,7 +14,7 @@ import ProfileAvatar from "@repo/components/ui/ProfileAvatar";
 const profileLink = {
   href: "/profile",
   label: "Profile",
-  icon: null, // Not used, handled by ProfileAvatar
+  icon: null,
 };
 
 export default function MobileNavigation({
@@ -24,14 +24,12 @@ export default function MobileNavigation({
   pathname: string;
   session: any;
 }) {
-  // Combine navigation links and profile link for active index logic
   const allLinks = [...navigationLinks, profileLink];
   const [activeIndex, setActiveIndex] = useState(0);
   const indicatorRef = useRef<HTMLDivElement>(null);
   const iconRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    // Find active index based on pathname
     const index = allLinks.findIndex((link) =>
       pathname === link.href ||
       (link.href !== "/" && pathname.startsWith(link.href))
@@ -90,7 +88,6 @@ export default function MobileNavigation({
               </Tooltip>
             );
           })}
-          {/* Profile Avatar as last nav item */}
           <Tooltip>
             <TooltipTrigger asChild>
               <div
