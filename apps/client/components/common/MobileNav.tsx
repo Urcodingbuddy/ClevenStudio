@@ -10,6 +10,7 @@ import {
   TooltipTrigger,
 } from "./tooltip";
 import { navigationLinks } from "@repo/lib/navigationLinks";
+import ProfileAvatar from "@repo/components/ui/ProfileAvatar";
 
 export default function MobileNavigation({
   pathname,
@@ -22,19 +23,9 @@ export default function MobileNavigation({
   const indicatorRef = useRef<HTMLDivElement>(null);
   const iconRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Add profile to navigation links for mobile
-  const mobileNavLinks = [
-    ...navigationLinks,
-    {
-      label: "Profile",
-      href: "/profile",
-      icon: User,
-    },
-  ];
-
   // Find active index based on pathname
   useEffect(() => {
-    const index = mobileNavLinks.findIndex((link) => link.href === pathname);
+    const index = navigationLinks.findIndex((link) => link.href === pathname);
     if (index !== -1) {
       setActiveIndex(index);
     }
@@ -64,7 +55,7 @@ export default function MobileNavigation({
     <TooltipProvider delayDuration={300}>
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#121212] border-t border-zinc-800">
         <div className="relative flex items-center justify-around h-14 px-2">
-          {mobileNavLinks.map((link, index) => {
+          {navigationLinks.map((link, index) => {
             const isActive = index === activeIndex;
             return (
               <Tooltip key={link.href}>
@@ -78,10 +69,10 @@ export default function MobileNavigation({
                       ref={(el) => {
                         iconRefs.current[index] = el;
                       }}
-                      className={cn("flex items-center justify-center hover:bg-muted w-10 h-10 rounded-full mb-1",
-                        isActive ? "bg-accent"  : "bg-transperent"
-                      )
-                      }
+                      className={cn(
+                        "flex items-center justify-center hover:bg-muted w-10 h-10 rounded-full mb-1",
+                        isActive ? "bg-accent" : "bg-transperent"
+                      )}
                     >
                       <link.icon
                         className={cn(
@@ -96,6 +87,12 @@ export default function MobileNavigation({
               </Tooltip>
             );
           })}
+          <Tooltip>
+            <TooltipTrigger>
+              <ProfileAvatar session={session} />
+            </TooltipTrigger>
+            <TooltipContent side="top">{session.user.name}</TooltipContent>
+          </Tooltip>
         </div>
       </div>
     </TooltipProvider>
