@@ -23,14 +23,14 @@ export default function ProfileAvatar({ session }: { session: any }) {
 
   return (
     <Link href={"/profile"}>
-      <Avatar className="h-8 w-8 border border-zinc-800">
+      <Avatar className="h-8 w-8 border border-accent hover:border-accent-foreground">
         {session.user?.image ? (
           <AvatarImage
             src={session?.user?.image || "/placeholder.svg"}
             alt={session.user.name || "User"}
           />
         ) : (
-          <AvatarFallback className="bg-zinc-900 text-zinc-400">
+          <AvatarFallback className="bg-zinc-900 text-zinc-400 hover:text-accent-foreground">
             {session.user?.name?.[0] || <User className="h-4 w-4" />}
           </AvatarFallback>
         )}
