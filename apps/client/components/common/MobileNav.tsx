@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { User } from "lucide-react";
 import { cn } from "@repo/lib/utils";
 import {
   Tooltip,
@@ -12,6 +11,12 @@ import {
 import { navigationLinks } from "@repo/lib/navigationLinks";
 import ProfileAvatar from "@repo/components/ui/ProfileAvatar";
 
+const profileLink = {
+  href: "/profile",
+  label: "Profile",
+  icon: null, // Not used, handled by ProfileAvatar
+};
+
 export default function MobileNavigation({
   pathname,
   session,
@@ -19,19 +24,21 @@ export default function MobileNavigation({
   pathname: string;
   session: any;
 }) {
+  // Combine navigation links and profile link for active index logic
+  const allLinks = [...navigationLinks, profileLink];
   const [activeIndex, setActiveIndex] = useState(0);
   const indicatorRef = useRef<HTMLDivElement>(null);
   const iconRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Find active index based on pathname
   useEffect(() => {
-    const index = navigationLinks.findIndex((link) => link.href === pathname);
-    if (index !== -1) {
-      setActiveIndex(index);
-    }
+    // Find active index based on pathname
+    const index = allLinks.findIndex((link) =>
+      pathname === link.href ||
+      (link.href !== "/" && pathname.startsWith(link.href))
+    );
+    setActiveIndex(index !== -1 ? index : 0);
   }, [pathname]);
 
-  // Update indicator position when active index changes
   useEffect(() => {
     if (indicatorRef.current && iconRefs.current[activeIndex]) {
       const activeIcon = iconRefs.current[activeIndex];
@@ -39,11 +46,8 @@ export default function MobileNavigation({
         const rect = activeIcon.getBoundingClientRect();
         const parentRect =
           activeIcon.parentElement?.getBoundingClientRect() || rect;
-
-        // Calculate position relative to the parent container
         const top = activeIcon.offsetTop;
         const left = activeIcon.offsetLeft;
-
         indicatorRef.current.style.width = `${rect.width + 8}px`;
         indicatorRef.current.style.height = `${rect.height + 8}px`;
         indicatorRef.current.style.transform = `translate(${left - 4}px, ${top - 4}px)`;
@@ -61,7 +65,6 @@ export default function MobileNavigation({
               <Tooltip key={link.href}>
                 <TooltipTrigger asChild>
                   <Link
-                    key={link.href}
                     href={link.href}
                     className="flex flex-col items-center justify-center py-1"
                   >
@@ -71,7 +74,7 @@ export default function MobileNavigation({
                       }}
                       className={cn(
                         "flex items-center justify-center hover:bg-muted w-10 h-10 rounded-full mb-1",
-                        isActive ? "bg-accent" : "bg-transperent"
+                        isActive ? "bg-accent" : "bg-transparent"
                       )}
                     >
                       <link.icon
@@ -87,11 +90,28 @@ export default function MobileNavigation({
               </Tooltip>
             );
           })}
+          {/* Profile Avatar as last nav item */}
           <Tooltip>
-            <TooltipTrigger>
-              <ProfileAvatar session={session} />
+            <TooltipTrigger asChild>
+              <div
+                ref={(el) => {
+                  iconRefs.current[navigationLinks.length] = el;
+                }}
+                className={cn(
+                  "flex items-center justify-center hover:bg-muted w-10 h-10 rounded-full mb-1",
+                  activeIndex === navigationLinks.length ? "bg-accent" : "bg-transparent"
+                )}
+              >
+                <ProfileAvatar
+                  session={session}
+                  pathname={pathname}
+                  isActive={activeIndex === navigationLinks.length}
+                />
+              </div>
             </TooltipTrigger>
-            <TooltipContent side="top">{session.user.name}</TooltipContent>
+            <TooltipContent side="top">
+              {session?.user?.name || "Profile"}
+            </TooltipContent>
           </Tooltip>
         </div>
       </div>
